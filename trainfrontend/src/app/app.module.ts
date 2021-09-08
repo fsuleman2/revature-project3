@@ -4,19 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { CustomerLoginComponent } from './customer-login/customer-login.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
     NavbarComponent,
-    CustomerLoginComponent
+    CustomerLoginComponent,
+    FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
