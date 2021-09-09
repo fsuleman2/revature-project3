@@ -37,5 +37,15 @@ public class CustomerServiceImpl implements CustomerService{
 	        }
 		return local;
 	}
+	@Override
+	public Customer getCustomerByUsername(String username) {
+		
+		return this.customerRepository.findByUsername(username);
+	}
+	@Override
+	public void deleteCustomerById(Long customerId) {
+		this.customerRepository.deleteById(customerId);
+		
+	}
 
 }
