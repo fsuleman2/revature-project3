@@ -6,41 +6,110 @@
           <div class="card">
            
             <div class="card-body p-lg-4">
-              <h3 class="mb-4">Get started with Railway</h3>
+              <h3 class="mb-4 text-center">Get started with Railway</h3>
              
               <form action="index.html">
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="username" type="name" placeholder="UserName" required>
-                  
+                  <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Enter Username"   required
+                    name="username"
+                    ngModel
+                    #username="ngModel">
+                    <mat-error
+                *ngIf="username.invalid">
+                username is required
+              </mat-error>
+                  </mat-form-field>
                 </div>
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="name" placeholder="Full Name" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Full name</mat-label>
+                    <input matInput placeholder="Enter Full name"   required
+                    name="name"
+                    ngModel
+                    #name="ngModel">
+                    <mat-error
+                *ngIf="name.invalid">
+                fullname is required
+              </mat-error>
+                  </mat-form-field>
                  
                 </div>
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="email" placeholder="name@example.com" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput placeholder="Enter Your Email"   required
+                    name="email"
+                    ngModel
+                    #email="ngModel">
+                    <mat-error
+                *ngIf="email.invalid">
+                email is required
+              </mat-error>
+                  </mat-form-field>
                   
                 </div>
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingPassword" type="password" placeholder="Password" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter Your Password"  required
+                    name="password"
+                    ngModel
+                    #password="ngModel">
+                    <mat-error
+                *ngIf="password.invalid">
+                password is required
+              </mat-error>
+                  </mat-form-field>
                 
                 </div>
                
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="number" placeholder="contact" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Enter Your Phone Number"   required
+                    name="phone"
+                    ngModel
+                    #phone="ngModel">
+                    <mat-error
+                *ngIf="phone.invalid">
+                "phone is required
+              </mat-error>
+                  </mat-form-field>
               
                 </div>
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="text" placeholder="Address" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Enter Your Address"   required
+                    name="address"
+                    ngModel
+                    #address="ngModel">
+                    <mat-error
+                *ngIf="address.invalid">
+                address is required
+              </mat-error>
+                  </mat-form-field>
                  
                 </div>
                 <div class="form-floating mb-3">
-                  <input class="form-control" id="floatingInput" type="text" placeholder="Aadhar" required>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Aadhar Number</mat-label>
+                    <input matInput placeholder="Enter Your Aadhar Number"   required
+                    name="aadhar"
+                    ngModel
+                    #aadhar="ngModel">
+                    <mat-error
+                *ngIf="aadhar.invalid">
+                aadhar is required
+              </mat-error>
+                  </mat-form-field>
                   
                 </div>
                 
                 <div class="form-group">
-                  <button class="btn btn-primary" id="regidter" type="button" name="registerSubmit">Register</button>
+                  <button mat-raised-button color="primary" class="btn btn-primary signup-button" id="regidter" type="submit" name="registerSubmit">Register</button>
                 </div>
               </form>
             </div>
