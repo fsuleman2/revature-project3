@@ -74,3 +74,14 @@
     /* .background{
    
     } */
+    mat-form-field {
+        width: 80%;
+        display: block;
+        margin: auto;
+      }
+      .signup-button {
+        margin-top: 20px;
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+      }

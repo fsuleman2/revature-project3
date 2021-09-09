@@ -10,27 +10,28 @@
             
               <form id="loginForm" action="index.html">
                 <div class="form-floating mb-3">
-                  <input
-                  matInput
-                  placeholder="Username"
-                  required
-                  name="username"
-                  ngModel
-                  #email="ngModel"><br>
-                  <mat-error *ngIf="email.invalid">Username is required</mat-error>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Enter Username"   required
+                    name="username"
+                    ngModel
+                    #username="ngModel">
+                    <mat-error
+                *ngIf="username.invalid">
+                username is required
+              </mat-error>
+                  </mat-form-field>
                   
                 </div>
                 <div class="form-floating mb-3">
-                  <input
-                  matInput
-                  placeholder="Password"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="password"
-                  ngModel
-                  #password="ngModel"><br>
-                  <mat-error
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter Your Password"  required
+                    name="password"
+                    ngModel
+                    minlength="6"
+                    #password="ngModel">
+              <mat-error
                     *ngIf="password.errors && password.errors.required">
                     Password is required
                   </mat-error>
@@ -38,13 +39,13 @@
                     *ngIf="password.errors && password.errors.minlength">
                     Password must be of length 6
                   </mat-error>
-                  
+              
+                  </mat-form-field>
                 </div>
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                  <label class="form-check-label" for="remember">Remember me</label>
-                </div>
-                <button class="btn btn-primary" type="button">Submit</button>
+                <mat-checkbox>Remember Me!</mat-checkbox>
+                <button class="login-button"  type="submit"
+                mat-raised-button
+                color="primary">Login</button>
               </form>
             </div>
             <div class="card-footer px-lg-5 py-lg-4">
