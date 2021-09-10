@@ -47,4 +47,8 @@ ng serve --open //for running project on server
    $git push origin branch name<br>
   -command for merging the changes made in branches to the main(assume main as master)<br>
   $git merge main<br>
+  
+  ## Swagger
+  - link for accessing swagger<br>
+  ``` http://localhost:8080/swagger-ui/ ```
 
