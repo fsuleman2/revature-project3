@@ -15,6 +15,8 @@ import { WelcomePageComponent } from './pages/home/welcome-page.component';
 import { CustomerLoginComponent } from './pages/login/customer-login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
