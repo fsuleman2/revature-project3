@@ -11,4 +11,7 @@ export class CustomerLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //form submit
+  formSubmit(){}
 }

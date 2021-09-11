@@ -13,8 +13,11 @@
 1. spring-boot-starter-web<br>
 2. spring-boot-starter-data-jpa<br>
 3. spring-boot-starter-test<br>
-4. postgresql<br>
-5. Java8
+4. jjwttoken<br>
+5. Spring-Web-Secuity<br>
+6. Jaxbi<br>
+5. postgresql<br>
+7. Java8
 
 <h3>Spring maven Plugins<h3>
 1. spring-boot-maven-plugin
