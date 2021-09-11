@@ -17,6 +17,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatSnackBarModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
