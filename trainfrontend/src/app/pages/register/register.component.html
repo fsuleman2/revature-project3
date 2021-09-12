@@ -4,7 +4,7 @@
       <div class="row align-items-center">
          <div class="col-lg-6 px-lg-4">
           <div class="card">
-           
+
             <div class="card-body p-lg-4">
               <h3 class="mb-4 text-center">Get started with Railway</h3>
              <!-- {{customer | json}} -->
@@ -12,7 +12,7 @@
                 <div class="form-floating mb-3">
                   <mat-form-field appearance="outline">
                     <mat-label>Username</mat-label>
-                    <input 
+                    <input
                     [(ngModel)]="customer.username"
                     matInput placeholder="Enter Username"  required
                     name="username"
@@ -36,7 +36,7 @@
                 fullname is required
               </mat-error>
                   </mat-form-field>
-                 
+
                 </div>
                 <div class="form-floating mb-3">
                   <mat-form-field appearance="outline">
@@ -50,7 +50,7 @@
                 email is required
               </mat-error>
                   </mat-form-field>
-                  
+
                 </div>
                 <div class="form-floating mb-3">
                   <mat-form-field appearance="outline">
@@ -68,10 +68,10 @@
                     *ngIf="password.errors && password.errors.minlength">
                     Password must be of length 6
                   </mat-error>
-              
+
                   </mat-form-field>
                 </div>
-               
+
                 <div class="form-floating mb-3">
                   <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
@@ -84,9 +84,9 @@
                 "phone is required
               </mat-error>
                   </mat-form-field>
-              
+
                 </div>
-            
+
                 <div class="form-floating mb-3">
                   <mat-form-field appearance="outline">
                     <mat-label>Aadhar Number</mat-label>
@@ -99,12 +99,12 @@
                 aadhar is required
               </mat-error>
                   </mat-form-field>
-                  
+
                 </div>
                 <div class="form-floating mb-3">
                   <mat-form-field class="w75" appearance="outline" >
                     <mat-label>Address</mat-label>
-      
+
                     <textarea required
                       name="address"
                       matInput
@@ -113,7 +113,7 @@
                       rows="8"
                     ></textarea>
                   </mat-form-field>
-                 
+
                 </div>
                 <div>
                   <button mat-raised-button color="primary" class="btn btn-primary signup-button" id="regidter" type="submit" name="registerSubmit">Register</button>
@@ -125,8 +125,8 @@
             </div>
           </div>
         </div>
-  <div class="col-lg-5 col-xl-4 ms-xl-auto px-lg-4 text-center text-primary " style="margin-top: 15px;" ><img class="img-fluid mb-4  d-block rounded-circle
-        " src="../../assets/logintrain.jpg" alt="" style="height:fit-content;width: fit-content; " >
-        
+  <div class="col-lg-5 col-xl-6 ms-xl-auto px-lg-4 text-center text-primary " style="margin-top: 15px;" ><img class="img-fluid mb-4  d-block rounded-circle
+        " src="../../assets/logintrain.jpg" alt="" style="border-radius: 50%;" >
+
         </div>
-      
+
