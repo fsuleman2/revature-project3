@@ -19,31 +19,43 @@ export class AddTrainComponent implements OnInit {
     start:'',
     stop:'',
     date:'',
-    totalCoach:'',
-    acSleeperCoach:'',	 
-     acSittingCoach:'',	 
+    totalCoach:0,
+    acSleeperCoach:0,	 
+     acSittingCoach:0,	 
      nonAcSleeperCoach:0,
-     nonAcSittingCoach:'',
-     totalAcSleeperSeat:'',	
-     availAcSleeperSeat:'',
-     totalAcSittingSeat:'',
-     availAcSittingSeat:'',
+     nonAcSittingCoach:0,
+     totalAcSleeperSeat:0,	
+     availAcSleeperSeat:0,
+     totalAcSittingSeat:0,
+     availAcSittingSeat:0,
      totalNonAcSleeperSeat:0,
      availNonAcSleeperSeat:0,
-     totalNonAcSittingSeat:'',
-     availNonAcSittingSeat:''
+     totalNonAcSittingSeat:0,
+     availNonAcSittingSeat:0
   }
 
   //from submit
 formSubmit(){
-  alert("sclicked")
+
   console.log(this.train)
+
+  this.train.totalNonAcSittingSeat=this.train.nonAcSittingCoach*70;
+  this.train.availNonAcSittingSeat=this.train.nonAcSittingCoach*70;
+
   this.train.totalNonAcSleeperSeat=this.train.nonAcSleeperCoach*50;
   this.train.availNonAcSleeperSeat=this.train.nonAcSleeperCoach*50;
+
+  this.train.totalAcSittingSeat=this.train.acSittingCoach*70;
+  this.train.availAcSittingSeat=this.train.acSittingCoach*70;
+
+  this.train.totalAcSleeperSeat=this.train.acSleeperCoach*50;
+  this.train.availAcSleeperSeat=this.train.acSleeperCoach*50;
+
   this.trainService.addTrain(this.train).subscribe(
     (data:any)=>{
       alert("submited")
       console.log(data);
+      window.location.reload(); //remove this
     },
     (error:any)=>{
       alert("error")
