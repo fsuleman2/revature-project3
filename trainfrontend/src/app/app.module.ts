@@ -17,6 +17,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
+
+
+
 
 
 @NgModule({
@@ -27,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerLoginComponent,
     FooterComponent,
     RegisterComponent,
+    DashboardComponent,
+    CustomerDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
