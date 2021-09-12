@@ -5,7 +5,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.train.exception.CustomerNotFoundException;
+import com.train.exception.CustomerFoundException;
 import com.train.model.Customer;
 import com.train.model.CustomerRole;
 import com.train.repository.CustomerRepository;
@@ -20,11 +20,11 @@ public class CustomerServiceImpl implements CustomerService{
 	private RoleRepository roleRepository;
 	//creating user
 	@Override
-	public Customer createCustomer(Customer customer, Set<CustomerRole> customerRoles) throws CustomerNotFoundException {
+	public Customer createCustomer(Customer customer, Set<CustomerRole> customerRoles) throws CustomerFoundException {
 		Customer local = this.customerRepository.findByUsername(customer.getUsername());
 		 if (local != null) {
 	            System.out.println("Customer is already there !!");
-	            throw new CustomerNotFoundException();
+	            throw new CustomerFoundException();
 	        } else {
 	            //customer create
 	            for (CustomerRole cr : customerRoles) {

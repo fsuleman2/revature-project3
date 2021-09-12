@@ -20,8 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
-
-
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import {MatIconModule} from '@angular/material/icon';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
 
 
 
@@ -35,6 +40,10 @@ import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/
     RegisterComponent,
     DashboardComponent,
     CustomerDashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    AddTrainComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,10 @@ import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/
     MatButtonModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule
 
   ],
   providers: [authInterceptorProviders],

@@ -23,6 +23,7 @@ export class LoginService {
   //loginuser:set token in local storage
   public loginUser(token:any){
     localStorage.setItem("token",token);
+   
     return true;
   }
 
@@ -43,6 +44,7 @@ export class LoginService {
 //for logout : removing token from local storage
   public logout(){
     localStorage.removeItem("token");
+    localStorage.clear();
     return true;
   }
   //getting token from local storage

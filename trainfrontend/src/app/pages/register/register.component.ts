@@ -22,6 +22,7 @@ public customer={
  phone:'',
  address:'',
  aadhar:'',
+ profile:"https://t3.ftcdn.net/jpg/03/91/19/22/360_F_391192211_2w5pQpFV1aozYQhcIw3FqA35vuTxJKrB.jpg",
 };
   ngOnInit(): void {}
 //form submittted
