@@ -11,7 +11,7 @@
               <div class="form-floating mb-3">
                 <mat-form-field appearance="outline">
                   <mat-label>Username</mat-label>
-                  <input matInput placeholder="Enter Username" required name="username" ngModel #username="ngModel">
+                  <input [(ngModel)]="loginData.username" matInput placeholder="Enter Username" required name="username" ngModel #username="ngModel">
                   <mat-error *ngIf="username.invalid">
                     username is required
                   </mat-error>
@@ -21,7 +21,7 @@
               <div class="form-floating mb-3">
                 <mat-form-field appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Enter Your Password" required name="password" ngModel minlength="6"
+                  <input [(ngModel)]="loginData.password" matInput placeholder="Enter Your Password" required name="password" ngModel minlength="6"
                     #password="ngModel">
                   <mat-error *ngIf="password.errors && password.errors.required">
                     Password is required
@@ -48,3 +48,7 @@
     </div>
   </div>
 </div>
+
+  <app-footer></app-footer>
+
+
