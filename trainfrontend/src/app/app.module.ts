@@ -27,6 +27,8 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
+import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
+import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
 
 
 
@@ -44,6 +46,8 @@ import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
     SidebarComponent,
     WelcomeComponent,
     AddTrainComponent,
+    CustomerSidebarComponent,
+    CustomerWelcomeComponent,
   ],
   imports: [
     BrowserModule,

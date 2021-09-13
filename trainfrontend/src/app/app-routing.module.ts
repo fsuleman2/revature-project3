@@ -4,6 +4,7 @@ import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
+import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
 import { WelcomePageComponent } from './pages/home/welcome-page.component';
 import { CustomerLoginComponent } from './pages/login/customer-login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -54,7 +55,14 @@ const routes: Routes = [
     path:'customer-dashboard',
     component:CustomerDashboardComponent,
     pathMatch:'full',
-    canActivate:[NormalGuard]
+    canActivate:[NormalGuard],
+    children:[
+      {
+        path:'',
+        component:CustomerWelcomeComponent,
+
+      },
+    ]
   }
 ];
 
