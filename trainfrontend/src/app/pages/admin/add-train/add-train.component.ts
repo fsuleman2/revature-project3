@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 import { TrainService } from 'src/app/services/train.service';
 import Swal from 'sweetalert2';
 import { routedetails } from '../model/routedetails';
@@ -12,32 +13,59 @@ import { traindetails } from '../model/traindetails';
   styleUrls: ['./add-train.component.css']
 })
 export class AddTrainComponent implements OnInit {
+  categories = [
+    {
+      catId: "",
+      type: "",
+      description: ""
+    }
+  ];
+  public train = {
+    tid: '',
+    tno: '',
+    tname: '',
+    start: '',
+    stop: '',
+    date: '',
+    totalCoach: '',
+    acSleeperCoach: '',
+    acSittingCoach: '',
+    nonAcSleeperCoach: '',
+    nonAcSittingCoach: '',
+    totalAcSleeperSeat: 0,
+    availAcSleeperSeat: 0,
+    totalAcSittingSeat: 0,
+    availAcSittingSeat: 0,
+    totalNonAcSleeperSeat: 0,
+    availNonAcSleeperSeat: 0,
+    totalNonAcSittingSeat: 0,
+    availNonAcSittingSeat: 0,
+    category: {
+      catId: ""
+    }
+  };
 
-  constructor(private trainService:TrainService,private route:Router,private snack:MatSnackBar) { }
+  constructor(private _cat: CategoryService,
+    private trainService:TrainService,
+    private route:Router,
+    private snack:MatSnackBar) { }
   td:traindetails=new traindetails;
+
   ngOnInit(): void {
+    this._cat.categories().subscribe(
+      (data: any) => {
+        //categories load
+        this.categories = data;
+        // console.log(this.categories);
+      },
+
+      (error) => {
+        console.log(error);
+        Swal.fire('Error!!', 'error in loading data from server', 'error');
+      }
+    );
   }
-  public train={
-    tid:'',
-    tno:'',
-    tname:'',
-    start:'',
-    stop:'',
-    date:'',
-    totalCoach:'',
-    acSleeperCoach:'',	 
-     acSittingCoach:'',	 
-     nonAcSleeperCoach:'',
-     nonAcSittingCoach:'',
-     totalAcSleeperSeat:0,	
-     availAcSleeperSeat:0,
-     totalAcSittingSeat:0,
-     availAcSittingSeat:0,
-     totalNonAcSleeperSeat:0,
-     availNonAcSleeperSeat:0,
-     totalNonAcSittingSeat:0,
-     availNonAcSittingSeat:0
-  }
+  
 
   //from submit
 formSubmit(){
