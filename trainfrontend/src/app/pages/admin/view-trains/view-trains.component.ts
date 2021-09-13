@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-trains.component.css']
 })
 export class ViewTrainsComponent implements OnInit {
-  public trains = [{tid: '',
+  public trains = [{
+    tid: '',
     tno: '',
     tname: '',
     start: '',

@@ -80,4 +80,9 @@ public class ServiceAdminImpl implements ServiceAdmin {
 		public List<RouteDetails> getByRoute(int id) {
 			return routedao.getRoutebyTrainid(id);
 			}
+		@Override
+		public List<RouteDetails> getAllRoutes() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }
