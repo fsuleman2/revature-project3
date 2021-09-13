@@ -1,1 +1,34 @@
-<p>customer-welcome works!</p>
+<mat-card>
+  <h1>Welcome User</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-2">
+        <form>
+          <div class="row">
+            <mat-form-field class="col-xs-4" appearance="fill">
+              <mat-label>From </mat-label>
+              <input type="text" name="tno" placeholder="Enter Starting Location" matInput />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="col-xs-4" appearance="fill">
+              <mat-label>To</mat-label>
+              <input type="text" name="start" placeholder="Enter Departing Location" matInput />
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="col-xs-4" appearance="fill">
+              <mat-label>Date</mat-label>
+              <input type="date" name="date" placeholder="Enter Date" matInput />
+            </mat-form-field>
+          </div>
+
+          <div class="container text-center">
+            <button mat-raised-button color="primary" type="submit">Search Trains</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</mat-card>
