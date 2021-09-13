@@ -29,6 +29,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
 import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
 import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
+import { ViewTrainsComponent } from './pages/admin/view-trains/view-trains.component';
 
 
 
@@ -48,6 +49,7 @@ import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/cust
     AddTrainComponent,
     CustomerSidebarComponent,
     CustomerWelcomeComponent,
+    ViewTrainsComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ViewTrainsComponent } from './pages/admin/view-trains/view-trains.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path:'add-train',
         component:AddTrainComponent,
+      },
+      {
+        path:'trains',
+        component:ViewTrainsComponent
       },
      
     ]
