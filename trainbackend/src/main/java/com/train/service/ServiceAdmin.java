@@ -20,7 +20,9 @@ public interface ServiceAdmin {
 
 	public List<RouteDetails> getAllTrainsByRoute(String startpoint, String lastpoint);
 
-	public List<RouteDetails> getAllTrainsByRouteDate(String start, String end, Date date);
-	
-	public int getTrainBydatelocdis(String startpoint, int trainid);
+	public List<RouteDetails> getAllTrainsByRouteDate(String start, String end, Date date)throws Exception;
+
+	public RouteDetails createRoute(RouteDetails routedetails);
+
+	public List<RouteDetails> getByRoute(int id);
 }

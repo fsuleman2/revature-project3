@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -30,5 +31,9 @@ public class RouteDetails {
 	private int station;
 	@ManyToOne
 	private TrainDetails td;
+	@Transient
+	private int gap;
+	@Transient
+	private Time interval;
 	
 }
