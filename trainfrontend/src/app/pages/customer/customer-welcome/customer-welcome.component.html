@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-2">
-        <form>
+        <form (ngSubmit)="searchtrain()">
           <div class="row">
             <mat-form-field class="col-xs-4" appearance="fill">
               <mat-label>From </mat-label>
@@ -41,7 +41,7 @@
 
 <!-- customers modal  -->
 <!-- large modal -->
-<div *ngIf="bool" class="modal fade" id="customers">
+<div class="modal fade" id="customers">
   <div class="modal-dialog modal-xl modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
 
@@ -55,38 +55,44 @@
       <!-- Modal body -->
       <div class="modal-body">
         <br>
-        <table class='table table-striped table-bordered'>
-          <thead class='thead-light text-center'>
-            <tr>
-              <th>Train No.</th>
-              <th>Train Name</th>
-              <th>Source</th>
-              <th>Destination</th>
-              <th>Arrival</th>
-              <th>Departure</th>
-              <th>Date</th>
-              <th>Destination Time</th>
-              <th>Distance</th>
-              <th>Book Tickets</th>
-          </thead>
-          <tbody class="text-center">
-            <tr *ngFor="let route of routedetails">
-              <td>{{route.td.tno}}</td>
-              <td> {{route.td.tname}} </td>
-              <td> {{route.startpoint}} </td>
-              <td> {{search.end}} </td>
-              <td> {{route.arrival}} </td>
-              <td> {{route.depart}} </td>
-              <td> {{route.date}} </td>
-              <td> {{route.interval}} </td>
-              <td> {{route.gap}} </td>
-              <td>
-                <button type="button" class="btn btn-primary">Book</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div *ngIf="bool,else elseblock">
+          <table class='table table-striped table-bordered'>
+            <thead class='thead-light text-center'>
+              <tr>
+                <th>Train No.</th>
+                <th>Train Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Date</th>
+                <th>Destination Time</th>
+                <th>Distance</th>
+                <th>Book Tickets</th>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let route of routedetails">
+                <td>{{route.td.tno}}</td>
+                <td> {{route.td.tname}} </td>
+                <td> {{route.startpoint}} </td>
+                <td> {{search.end}} </td>
+                <td> {{route.arrival}} </td>
+                <td> {{route.depart}} </td>
+                <td> {{route.date}} </td>
+                <td> {{route.interval}} </td>
+                <td> {{route.gap}} </td>
+                <td>
+                  <button type="button" class="btn btn-primary">Book</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-template #elseblock>
+          {{msg}}
+        </ng-template>
       </div>
+
 
       <!-- Modal footer -->
       <div class="modal-footer">

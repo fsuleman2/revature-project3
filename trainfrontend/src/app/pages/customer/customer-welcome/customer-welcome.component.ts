@@ -19,19 +19,22 @@ export class CustomerWelcomeComponent implements OnInit {
   }
 
   bool: boolean = true;
+  msg: any = "";
   ngOnInit(): void {
   }
 
   searchtrain() {
     this.service.searchTrain(this.search).subscribe(
       (Response: any) => {
-        // this.bool=true
+        this.bool=true
         console.log(Response)
         this.routedetails = Response
       },
       (err: any) => {
-        window.location.reload();
-        alert("error")
+        // window.location.reload();
+        this.bool = false;
+        this.msg= "Trains are not running between these Routes";
+        alert("Trains are not running between these Routes")
       });
   }
 
