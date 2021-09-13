@@ -34,7 +34,7 @@ export class CustomerWelcomeComponent implements OnInit {
         // window.location.reload();
         this.bool = false;
         this.msg= "Trains are not running between these Routes";
-        alert("Trains are not running between these Routes")
+        // alert("Trains are not running between these Routes")
       });
   }
 
