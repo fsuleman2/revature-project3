@@ -34,6 +34,7 @@ import { ViewTrainsComponent } from './pages/admin/view-trains/view-trains.compo
 
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
 
 
 
@@ -57,6 +58,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
     ViewTrainsComponent,
     ViewCategoryComponent,
     AddCategoryComponent,
+    ViewTrainRoutesComponent,
 
   ],
   imports: [

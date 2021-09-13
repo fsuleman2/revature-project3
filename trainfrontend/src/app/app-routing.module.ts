@@ -17,6 +17,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
 
 
 
@@ -65,7 +66,12 @@ const routes: Routes = [
       {
         path: "add-category",
         component: AddCategoryComponent,
-      }
+      },
+      {
+        // path:'view-routes/:tid/:tname',
+        path:'view-routes',
+        component:ViewTrainRoutesComponent
+      },
 
 
     ]
