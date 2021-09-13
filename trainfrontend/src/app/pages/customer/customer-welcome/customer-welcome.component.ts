@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainService } from 'src/app/services/train.service';
+import { routedetails } from '../../admin/model/routedetails';
 
 @Component({
   selector: 'app-customer-welcome',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerWelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TrainService) { }
+  routedetails: routedetails[] = [];
 
+  public search = {
+    start: '',
+    end: '',
+    date: ''
+  }
+
+  bool: boolean = true;
   ngOnInit(): void {
+  }
+
+  searchtrain() {
+    this.service.searchTrain(this.search).subscribe(
+      (Response: any) => {
+        // this.bool=true
+        console.log(Response)
+        this.routedetails = Response
+      },
+      (err: any) => {
+        window.location.reload();
+        alert("error")
+      });
   }
 
 }
