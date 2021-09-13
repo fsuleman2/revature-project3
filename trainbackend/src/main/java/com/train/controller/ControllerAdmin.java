@@ -63,18 +63,18 @@ public class ControllerAdmin {
 
 	@GetMapping("/route/all/{start}/{end}/{date}")
 	  public List<RouteDetails> getAllTrainsByroutedate(@PathVariable("start") String start,
-	      @PathVariable("end") String end, @PathVariable("date") Date date) throws Exception {
-	    List<RouteDetails>list=serviceAdmin.getAllTrainsByRouteDate(start, end, date);
-	    List<RouteDetails>list1=new ArrayList<>();
-	    for(RouteDetails rd:list) {
-	      int id= rd.getTd().getTid();
-	      int d1=serviceAdmin.getTrainBydatelocdis(end, id);
-	      if(d1-rd.getDistance()>0) {
-	        list1.add(rd);
-	      }
+	      @PathVariable("end") String end, @PathVariable("date") Date date) throws Exception{
+		return this.serviceAdmin.getAllTrainsByRouteDate(start, end, date);
 	    }
-	    if(list1.isEmpty())throw new Exception("Train is not running between this route");
-	    else return list1;
+	@PostMapping("/addroute")
+	  public RouteDetails createRoute(@RequestBody RouteDetails routedetails) {
+	    return this.serviceAdmin.createRoute(routedetails);
+	  }
+	
+	@GetMapping("/route/get/{id}")
+	  public List<RouteDetails> getByroute(
+	      @PathVariable("id") int id) {
+	    return this.serviceAdmin.getByRoute(id);
 	    
 	  }
 }
