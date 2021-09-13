@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,6 +27,8 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 
 
 
@@ -44,6 +46,8 @@ import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
     SidebarComponent,
     WelcomeComponent,
     AddTrainComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
     HttpClientModule,
     MatListModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
 
   ],
   providers: [authInterceptorProviders],

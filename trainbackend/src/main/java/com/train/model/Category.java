@@ -16,13 +16,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Entity
-@Data
 @Table(name = "category")
 public class Category {
 	
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    private Long cid;
+	    private Long catId;
 
 	    private String type;
 
@@ -30,7 +29,7 @@ public class Category {
 	    
 	    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	    @JsonIgnore
-	    private Set<TrainDetails> quizzes = new LinkedHashSet<>();
+	    private Set<TrainDetails> trains = new LinkedHashSet<>();
 
 	    public Category() {
 	    }
@@ -39,6 +38,38 @@ public class Category {
 	        this.type = type;
 	        this.description = description;
 	    }
+
+		public Long getCatId() {
+			return catId;
+		}
+
+		public void setCatId(Long catId) {
+			this.catId = catId;
+		}
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+		public Set<TrainDetails> getTrains() {
+			return trains;
+		}
+
+		public void setTrains(Set<TrainDetails> trains) {
+			this.trains = trains;
+		}
 	    
 
 }
