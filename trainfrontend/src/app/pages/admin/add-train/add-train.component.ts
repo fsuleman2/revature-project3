@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { TrainService } from 'src/app/services/train.service';
+import Swal from 'sweetalert2';
+import { routedetails } from '../model/routedetails';
+import { traindetails } from '../model/traindetails';
 
 @Component({
   selector: 'app-add-train',
@@ -8,22 +13,22 @@ import { TrainService } from 'src/app/services/train.service';
 })
 export class AddTrainComponent implements OnInit {
 
-  constructor(private trainService:TrainService) { }
-
+  constructor(private trainService:TrainService,private route:Router,private snack:MatSnackBar) { }
+  td:traindetails=new traindetails;
   ngOnInit(): void {
   }
   public train={
-    tid:0,
+    tid:'',
     tno:'',
     tname:'',
     start:'',
     stop:'',
     date:'',
-    totalCoach:0,
-    acSleeperCoach:0,	 
-     acSittingCoach:0,	 
-     nonAcSleeperCoach:0,
-     nonAcSittingCoach:0,
+    totalCoach:'',
+    acSleeperCoach:'',	 
+     acSittingCoach:'',	 
+     nonAcSleeperCoach:'',
+     nonAcSittingCoach:'',
      totalAcSleeperSeat:0,	
      availAcSleeperSeat:0,
      totalAcSittingSeat:0,
@@ -39,26 +44,31 @@ formSubmit(){
 
   console.log(this.train)
 
-  this.train.totalNonAcSittingSeat=this.train.nonAcSittingCoach*70;
-  this.train.availNonAcSittingSeat=this.train.nonAcSittingCoach*70;
+  this.train.totalNonAcSittingSeat=Number(this.train.nonAcSittingCoach)*70;
+  this.train.availNonAcSittingSeat=Number(this.train.nonAcSittingCoach)*70;
 
-  this.train.totalNonAcSleeperSeat=this.train.nonAcSleeperCoach*50;
-  this.train.availNonAcSleeperSeat=this.train.nonAcSleeperCoach*50;
+  this.train.totalNonAcSleeperSeat=Number(this.train.nonAcSleeperCoach)*50;
+  this.train.availNonAcSleeperSeat=Number(this.train.nonAcSleeperCoach)*50;
 
-  this.train.totalAcSittingSeat=this.train.acSittingCoach*70;
-  this.train.availAcSittingSeat=this.train.acSittingCoach*70;
+  this.train.totalAcSittingSeat=Number(this.train.acSittingCoach)*70;
+  this.train.availAcSittingSeat=Number(this.train.acSittingCoach)*70;
 
-  this.train.totalAcSleeperSeat=this.train.acSleeperCoach*50;
-  this.train.availAcSleeperSeat=this.train.acSleeperCoach*50;
+  this.train.totalAcSleeperSeat=Number(this.train.acSleeperCoach)*50;
+  this.train.availAcSleeperSeat=Number(this.train.acSleeperCoach)*50;
 
   this.trainService.addTrain(this.train).subscribe(
     (data:any)=>{
-      alert("submited")
+      this.td=data;
+      Swal.fire('Successfully done !!', '' +this.td.tid, 'success').then((e)=>{
+        this.route.navigate(['/admin/dashboard'])
+      })
       console.log(data);
       window.location.reload(); //remove this
     },
     (error:any)=>{
-      alert("error")
+      this.snack.open('Something Wrong Happend','' ,{
+        duration: 3000,
+      });
       console.log(error);
     }
   );
