@@ -10,6 +10,11 @@ export class RoutesService {
   constructor(private http:HttpClient) { }
 
   public getTrainsOfRoute(tid:any){
-    this.http.get(`${baseUrl}/`)
+    return this.http.get(`${baseUrl}/train/route/${tid}`);
   }
+
+  public addRoute(route: any) {
+    return this.http.post(`${baseUrl}/train/addroute`, route);
+  }
+
 }

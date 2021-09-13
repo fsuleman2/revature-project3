@@ -18,6 +18,7 @@ import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
+import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 
 
 
@@ -69,8 +70,12 @@ const routes: Routes = [
       },
       {
         // path:'view-routes/:tid/:tname',
-        path:'view-routes',
+        path:'view-routes/:tid/:tname',
         component:ViewTrainRoutesComponent
+      },
+      {
+        path: 'add-route/:tid/:tname',
+        component:AddRouteComponent,
       },
 
 
