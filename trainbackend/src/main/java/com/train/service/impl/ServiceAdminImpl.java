@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.train.model.ReservationForm;
 import com.train.model.RouteDetails;
 import com.train.model.TrainDetails;
 import com.train.repository.AdminDao;
@@ -83,6 +84,15 @@ public class ServiceAdminImpl implements ServiceAdmin {
 		@Override
 		public List<RouteDetails> getAllRoutes() {
 			// TODO Auto-generated method stub
+			return null;
+		}
+		
+//////////////////////////booking/////////////////	
+		
+		@Override
+		public ReservationForm addBooking(ReservationForm reservationForm) {
+			// TODO Auto-generated method stub
+			//return admindao.save(reservationForm);
 			return null;
 		}
 }
