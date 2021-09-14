@@ -103,14 +103,14 @@
 
           <br />
           <!-- //category select  -->
-          <!-- <mat-form-field appearance="fill" class="mt20 w100">
+          <mat-form-field appearance="fill" class="mt20 w100">
             <mat-label>Categories</mat-label>
-            <mat-select name="category" [(ngModel)]="quizData.category.cid">
-              <mat-option *ngFor="let c of categories" [value]="c.cid">
-                {{ c.title }}
+            <mat-select name="category" [(ngModel)]="train.category.catId">
+              <mat-option *ngFor="let c of categories" [value]="c.catId">
+                {{ c.type }}
               </mat-option>
             </mat-select>
-          </mat-form-field> -->
+          </mat-form-field>
 
           <div class="container text-center">
             <button mat-raised-button color="primary" type="submit">Add Train</button>

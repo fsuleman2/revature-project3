@@ -3,9 +3,11 @@ package com.train.model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -39,6 +41,10 @@ public class TrainDetails {
 	private int availNonAcSleeperSeat;
 	private int totalNonAcSittingSeat;
 	private int availNonAcSittingSeat;
+	
+	//linking with category 
+	 @ManyToOne(fetch = FetchType.EAGER)
+	    private Category category;
 
 	
 }

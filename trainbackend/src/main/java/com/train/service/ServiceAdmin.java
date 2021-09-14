@@ -25,4 +25,6 @@ public interface ServiceAdmin {
 	public RouteDetails createRoute(RouteDetails routedetails);
 
 	public List<RouteDetails> getByRoute(int id);
+	
+	public List<RouteDetails> getAllRoutes();
 }

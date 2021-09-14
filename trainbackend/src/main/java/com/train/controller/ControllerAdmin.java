@@ -4,8 +4,10 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -71,7 +73,26 @@ public class ControllerAdmin {
 	    return this.serviceAdmin.createRoute(routedetails);
 	  }
 	
-	@GetMapping("/route/get/{id}")
+//	@GetMapping("/route/{tid}")
+//    public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("tid") int tid) {
+////        Quiz quiz = new Quiz();
+////        quiz.setqId(qid);
+////        Set<Question> questionsOfQuiz = this.service.getQuestionsOfQuiz(quiz);
+////        return ResponseEntity.ok(questionsOfQuiz);
+//
+//        Optional<TrainDetails> trainDetails = this.serviceAdmin.getTrainById(tid);
+//        Set<RouteDetails> questions = trainDetails.getAllRoutes();
+//        List<RouteDetails> list = new ArrayList<Question>(questions);
+//        if (list.size() > Integer.parseInt(quiz.getNumberOfQuestions())) {
+//            list = list.subList(0, Integer.parseInt(quiz.getNumberOfQuestions() + 1));
+//        }
+//        Collections.shuffle(list);
+//        return ResponseEntity.ok(list);
+//
+//
+//    }
+	
+	@GetMapping("/route/{id}")
 	  public List<RouteDetails> getByroute(
 	      @PathVariable("id") int id) {
 	    return this.serviceAdmin.getByRoute(id);

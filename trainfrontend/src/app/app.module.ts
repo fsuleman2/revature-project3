@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from './components/footer/footer.component';
@@ -21,14 +21,22 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
+
 import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
 import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
+import { ViewTrainsComponent } from './pages/admin/view-trains/view-trains.component';
+
+import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
+import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
+
 
 
 
@@ -48,6 +56,12 @@ import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/cust
     AddTrainComponent,
     CustomerSidebarComponent,
     CustomerWelcomeComponent,
+    ViewTrainsComponent,
+    ViewCategoryComponent,
+    AddCategoryComponent,
+    ViewTrainRoutesComponent,
+    AddRouteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -62,7 +76,8 @@ import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/cust
     HttpClientModule,
     MatListModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
 
   ],
   providers: [authInterceptorProviders],
