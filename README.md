@@ -5,6 +5,13 @@
   <li>Username : postgres</li><br>
   <li>Password : root12345</li><br>
   <li>Schema Name : train_schema</li><br>
+  
+   <h3>Remote Desktop Server(MYSQL) Credentials</h3>
+  <li>Database Name : Railway</li><br>
+  <li>Username : root</li><br>
+  <li>Password : root12345</li><br>
+  <li>Schema Name : train_schema</li><br>
+  <li>Local Host : railway.cgotxcdjntda.us-east-2.rds.amazonaws.com</li><br>
 <hr>
 
 ## Spring Boot Configuration Details
