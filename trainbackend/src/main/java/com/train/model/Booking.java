@@ -21,7 +21,7 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
    private int bookingid;
 	
-   private int userid;
+   private long cid;
    private String source;
    private String destination;
    private Date traveldate;
