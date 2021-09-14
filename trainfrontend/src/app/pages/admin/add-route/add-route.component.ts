@@ -39,7 +39,7 @@ routes =
   formSubmit() {
     this._stop.addRoute(this.routes).subscribe(
       (data: any) => {
-        Swal.fire('Success ', 'Question Added. Add Another one', 'success').then((e) => {
+        Swal.fire('Success ', 'station Added. Add Another one', 'success').then((e) => {
           this.route.navigate(['admin/trains'])
         })
 ;
@@ -51,7 +51,7 @@ routes =
         this.routes.station = 0;
       },
       (error) => {
-        Swal.fire('Error', 'Error in adding question', 'error');
+        Swal.fire('Error', 'Error in adding stop', 'error');
       }
     );
 
