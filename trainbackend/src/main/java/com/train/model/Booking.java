@@ -19,23 +19,26 @@ public class Booking {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int bookingid;
+	private int bookingid;
+
+	@ManyToOne
+	private Customer customer;
 	
-   private int userid;
-   private String source;
-   private String destination;
-   private Date traveldate;
-   private String coachtype;
-   private String seattype;
-   private String pname;
-   private String page;
-   private String pgender;
-   private boolean disable;
-   private float price;
-   private int totaldistance;
-   private int seatnumber;
-   private int coachid;
-   private Date bookingdate; 
-   @ManyToOne
-   private TrainDetails traindetails;
+	private String source;
+	private String destination;
+	private Date travelDate;
+	private String coachType;
+
+	private String pName;
+	private String pAge;
+	private String pGender;
+	private boolean pDisabled;
+	private float price;
+	private int totalDistance;
+	private int seatNumber;
+	private int coachId;
+	private Date bookingDate;
+	
+	@ManyToOne
+	private TrainDetails traindetails;
 }
