@@ -19,6 +19,7 @@ import { NormalGuard } from './services/normal.guard';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
 import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
+import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 
 
 
@@ -92,7 +93,12 @@ const routes: Routes = [
         component: CustomerWelcomeComponent,
 
       },
+     
     ]
+  },
+  {
+    path:'booking',
+    component: BookingformComponent,
   }
 ];
 
