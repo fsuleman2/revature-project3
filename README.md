@@ -25,6 +25,7 @@
 6. Jaxbi<br>
 5. postgresql<br>
 7. Java8
+8. MySQL
 
 <h3>Spring maven Plugins<h3>
 1. spring-boot-maven-plugin
