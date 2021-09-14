@@ -18,4 +18,10 @@ public class BookingServiceImpl implements BookingService {
 		return bookingRepository.save(booking);
 	}
 
+	@Override
+	public Booking getBooking(int id) {
+		
+		return this.bookingRepository.findById(id).get();
+	}
+
 }
