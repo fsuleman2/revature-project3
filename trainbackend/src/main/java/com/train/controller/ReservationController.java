@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.train.model.Customer;
 import com.train.model.ReservationForm;
 import com.train.service.ReservationService;
 
@@ -24,6 +25,9 @@ public class ReservationController {
 	
 	@PostMapping("/add")
 	public ReservationForm addReservationForm(@RequestBody ReservationForm reservationForm) {
+		System.out.println("----------------------------------------");
+		System.out.println(reservationForm);
+		System.out.println("********************************************");
 		return this.reservationService.addReservationForm(reservationForm);
 	}
 	

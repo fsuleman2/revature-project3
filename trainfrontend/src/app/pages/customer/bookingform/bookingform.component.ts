@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from 'src/app/services/booking.service';
+import { reservation } from '../../admin/model/reservation';
 
 
 
@@ -14,25 +15,26 @@ export class BookingformComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  rev:reservation=new reservation
   public booking = {
-    bookingId:'',
+    // bookingId:'',
     source:localStorage.getItem("start"),
     destination:localStorage.getItem("end"),
     travelDate:localStorage.getItem("date"),
     coachType:'',
-    pName:'',
-    pAge:0,
-    pGender:'',
-    pDisabled:'',
+    pname:'',
+    page:0,
+    pgender:'',
+    pdisabled:'',
     price:0,
     totalDistance:localStorage.getItem("dist"),
     seatNumber:'',
     coachId:'',
-    bookingDate:'2021-09-11',
-    td:{
+    bookingDate:'2021-09-16',
+    trainDetails:{
       tid:localStorage.getItem("tid")
     },
-    cust:{
+    customer:{
       cId:0,
       username:localStorage.getItem("userid")
     }
@@ -41,7 +43,7 @@ export class BookingformComponent implements OnInit {
   flag=false;
   bool=false;
   msg:any='';
-
+  chk=false;
 
     checkavailabilty(){
 
@@ -62,14 +64,15 @@ export class BookingformComponent implements OnInit {
     finalprice:number=0;
 
     checkPrice(){
+      this.chk=true;
       this.distance=localStorage.getItem("dist");
       this.finalprice=this.distance*2;
       if(this.booking.coachType=="availAcSleeperSeat")
       {
         this.finalprice=this.finalprice+(this.finalprice*60)/100;
-        if(this.booking.pAge<=5)
+        if(this.booking.page<=5)
         this.finalprice=0;
-        else if(this.booking.pAge>=60)
+        else if(this.booking.page>=60)
         this.finalprice=this.finalprice-(this.finalprice*10)/100;
         else
         this.finalprice=this.finalprice
@@ -77,9 +80,9 @@ export class BookingformComponent implements OnInit {
       else if(this.booking.coachType=="availAcSittingSeat")
       {
         this.finalprice=this.finalprice+(this.finalprice*40)/100;
-        if(this.booking.pAge<=5)
+        if(this.booking.page<=5)
         this.finalprice=0;
-        else if(this.booking.pAge>=60)
+        else if(this.booking.page>=60)
         this.finalprice=this.finalprice-(this.finalprice*10)/100;
         else
         this.finalprice=this.finalprice
@@ -87,18 +90,18 @@ export class BookingformComponent implements OnInit {
       else if(this.booking.coachType=="availNonAcSleeperSeat")
       {
         this.finalprice=this.finalprice+(this.finalprice*35)/100;
-        if(this.booking.pAge<=5)
+        if(this.booking.page<=5)
         this.finalprice=0;
-        else if(this.booking.pAge>=60)
+        else if(this.booking.page>=60)
         this.finalprice=this.finalprice-(this.finalprice*10)/100;
         else
         this.finalprice=this.finalprice
       }
       else
       {
-        if(this.booking.pAge<=5)
+        if(this.booking.page<=5)
         this.finalprice=0;
-        else if(this.booking.pAge>=60)
+        else if(this.booking.page>=60)
         this.finalprice=this.finalprice-(this.finalprice*10)/100;
         else
         this.finalprice=this.finalprice
@@ -107,12 +110,15 @@ export class BookingformComponent implements OnInit {
 
 source=localStorage.getItem("start");
     confirmbooking(){
+      if(this.chk==true){
       console.log(this.booking);
       this.booking.price=this.finalprice;
       this.service.addBooking(this.booking).subscribe(
         (Response:any)=>{
+          this.rev=Response;
+          console.log(this.rev)
           alert("data submitted");
-          console.log(this.booking)
+          window.location.href="/customer-dashboard/payment"
         },
       (err:any)=>{
         alert("failed to add booking")
@@ -120,4 +126,8 @@ source=localStorage.getItem("start");
       )
 
     }
+    else
+    alert("calculate price first");
+  }
+ 
   }
