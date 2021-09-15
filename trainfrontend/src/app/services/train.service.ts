@@ -24,6 +24,8 @@ export class TrainService {
     return this.https.get(`http://localhost:9848/train/route/all/` + search.start + `/` + search.end + `/` + search.date);
   }
 
+  
+ 
 
   //delete train
   // public deleteTrain(tId: any) {
@@ -45,6 +47,7 @@ export class TrainService {
   // public getQuizzesOfCategory(cid) {
   //   return this._http.get(`${baseUrl}/quiz/category/${cid}`);
   // }
+
 
 
 }

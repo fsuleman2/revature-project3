@@ -82,8 +82,8 @@
                 <td> {{route.interval}} </td>
                 <td> {{route.gap}} </td>
                 <td>
-                  <button routerLink="/booking" (click)="dataForBook(route.td.tid,route.gap)" data-dismiss="modal"
-                  type="button" class="btn btn-primary">Book</button>
+                  <button (click)="dataForBook(route.td.tid,route.gap)" data-dismiss="modal"
+                  type="submit" class="btn btn-primary">Book</button>
                 </td>
               </tr>
             </tbody>

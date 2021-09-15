@@ -65,8 +65,8 @@ import { BookingformComponent } from './pages/customer/bookingform/bookingform.c
     ViewTrainRoutesComponent,
     AddRouteComponent,
     BookingformComponent,
-    
-    
+
+
 
   ],
   imports: [

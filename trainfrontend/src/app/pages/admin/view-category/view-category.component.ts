@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export class ViewCategoryComponent implements OnInit {
   categories = [
     {
-      catId: "" ,
+      catId: "",
       type: "",
       description: ""
     }

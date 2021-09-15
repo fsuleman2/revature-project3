@@ -37,9 +37,12 @@ public class ReservationController {
 		return this.reservationService.getReservationByCustId(custId);
 	}
 	
-	@GetMapping("/checkseats/{id}/{seat}")
-	  public boolean checkSeatAvail(@PathVariable int id,@PathVariable String seat) {
-	    return this.reservationService.checkSeatAvail(id,seat);
+
+
+
+	@GetMapping("/checkseats/{seat}/{id}")
+	  public boolean checkSeatAvail(@PathVariable String seat,@PathVariable int id) {
+	    return this.reservationService.checkSeatAvail(seat,id);
 	  }
 
 }

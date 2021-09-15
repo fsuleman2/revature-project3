@@ -14,6 +14,8 @@ public interface ReservationService {
 	
 	public List<ReservationForm> getReservationByCustId(Long custid);
 
-	public boolean checkSeatAvail(int id, String seat);
+
+	public boolean checkSeatAvail(String seat,int id);
+
 
 }

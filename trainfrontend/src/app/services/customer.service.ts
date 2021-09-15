@@ -7,16 +7,12 @@ import baseUrl from './helper';
 })
 export class CustomerService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   //adding customer
-  public addCustomer(customer:any){
-    return this.http.post(`${baseUrl}/customer/`,customer)
+  public addCustomer(customer: any) {
+    return this.http.post(`${baseUrl}/customer/`, customer)
   }
 
-  public checkAvailabilty(seattype:any){
-    return this.http.get(`${baseUrl}/booking/`+ localStorage.getItem("id")+`/`+seattype)
-    
   
-  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/app/services/customer.service';
+import { BookingService } from 'src/app/services/booking.service';
 
 @Component({
   selector: 'app-bookingform',
@@ -8,30 +8,40 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class BookingformComponent implements OnInit {
 
-  constructor(private service:CustomerService) { }
+  constructor( private service:BookingService) { }
 
   ngOnInit(): void {
   }
-  public booking={
-    seattype:'',
-    pname:'',
-    page:0,
-    pgender:'',
-    disable:''
+  public booking = {
+    seattype: '',
+    pname: '',
+    page: 0,
+    pgender: '',
+    disable: ''
 
   }
-  flag:boolean=false;
+
+  flag=false;
   msg:any='';
-    checkavailabilty(seattype:any){
-        this.service.checkAvailabilty(seattype).subscribe(
+
+
+    checkavailabilty(){
+
+      console.log("button clicked ok")
+        this.service.checkAvailableSeat(this.booking.seattype).subscribe(
           (Response:any)=>{
+            console.log(Response)
             this.flag=Response;
-          },(error:any)=>{
-            this.flag = false;
-            this.msg = "Seats are not available ! select another type or another train!!";
+          },
+          (err:any)=>{
+
           }
-        )
+        );
     }
-
-
-}
+    price:any='';
+    finalprice:number=0;
+    checkPrice(){
+      this.price=localStorage.getItem("dist");
+      this.finalprice=this.price*2;
+    }
+  }
