@@ -14,29 +14,34 @@
 </form>
 <hr>
 
-<form *ngIf="flag,else elseblock">
+ <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">  
   <label>
     Passenger Name:
-    <input type="text" >
+    <input type="text" [(ngModel)]="booking.pname" placeholder="Enter Passenger's name" required id="pname" name="pname">
   </label>
   <br>
   <label>
     Passenger Age:
-    <input type="number">
+    <input type="number" [(ngModel)]="booking.page" placeholder="Enter Passenger's age" required id="page" name="page">
   </label>
   <br>
   <label>
     Gender:
-    <input type="text">
+    <input type="text" [(ngModel)]="booking.pgender" placeholder="Enter Passenger's gender" required id="pgender" name="pgender">
   </label>
   <br>
   <label>
     Physical Disabled:
-    <input type="text" >
+
+    <input type="text" [(ngModel)]="booking.disable"  required name="disable" id="disable" >
   </label>
   <br>
-  <button type="submit" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
+  <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
+  <br>
+  <button type="submit"  class="btn btn-primary">Confirm Booking</button>
   {{finalprice}}
+  {{t}}
+  
 </form>
 
 <div>

@@ -17,6 +17,7 @@ export class LoginService {
 
   //generating token
   public generateToken(loginData: any) {
+    localStorage.setItem("userid",loginData.username);
     return this.http.post(`${baseUrl}/generate-token`, loginData);
   }
 
@@ -44,6 +45,7 @@ export class LoginService {
   //for logout : removing token from local storage
   public logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("userid");
     localStorage.clear();
     return true;
   }
