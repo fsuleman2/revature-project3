@@ -23,7 +23,8 @@ export class TrainService {
     console.log("service layer" + search)
     return this.https.get(`http://localhost:9848/train/route/all/` + search.start + `/` + search.end + `/` + search.date);
   }
-
+  
+ 
 
   //delete train
   // public deleteTrain(tId: any) {
