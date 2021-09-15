@@ -19,7 +19,7 @@
 
         <li><a *ngIf="isLoggedIn" class="nav-link scrollto" (click)="logout()"><i
               class="fas fa-sign-in-alt fa-fw mr-1"></i>Logout</a>
-        <li><a *ngIf="isLoggedIn && user" class="nav-link scrollto" routerLink="/admin/profile"><i
+        <li><a *ngIf="isLoggedIn && user" class="nav-link scrollto" routerLink="/customer-dashboard"><i
               class="fas fa-users fa-fw mr-1"></i>{{user.username}}</a>
       </ul>
 

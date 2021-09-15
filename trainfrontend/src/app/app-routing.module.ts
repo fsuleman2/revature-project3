@@ -86,10 +86,7 @@ const routes: Routes = [
   {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
-<<<<<<< HEAD
-    // pathMatch: 'full',
-=======
->>>>>>> payment
+
     canActivate: [NormalGuard],
     children: [
       {
@@ -98,25 +95,16 @@ const routes: Routes = [
 
       },
       {
-<<<<<<< HEAD
         path: 'booking',
-        component: BookingformComponent,
-      }
-    ]
-  },
-  
-=======
-        path:'booking1',
         component: BookingformComponent,
       },
       {
         path:'payment',
         component:PaymentComponent
-      },
-     
+      }
     ]
   },
->>>>>>> payment
+  
 ];
 
 @NgModule({

@@ -110,12 +110,12 @@ updatePaymentOnServer(payment_id: any, order_id: any, status: any) {
   this.paymentService.updatePayment(updateDetails).subscribe(
     (data:any)=>{
       Swal.fire('Payment Success', '','success').then((e)=>{
-        window.location.href="'customer-dashboard'"
+        window.location.href="customer-dashboard"
       })
     },
     (error:any)=>{
       console.log(error);
-      Swal.fire('Failed','oops payment faield!!','error')
+      Swal.fire('Failed','oops payment failed!!','error')
     }
   );
 }

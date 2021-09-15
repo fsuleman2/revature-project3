@@ -66,14 +66,9 @@ import { PaymentComponent } from './pages/customer/payment/payment.component';
     ViewTrainRoutesComponent,
     AddRouteComponent,
     BookingformComponent,
-<<<<<<< HEAD
+    PaymentComponent
 
 
-=======
-    PaymentComponent,
-    
-    
->>>>>>> payment
 
   ],
   imports: [
