@@ -15,7 +15,7 @@ export class BookingformComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  rev:reservation=new reservation;
+  rev:reservation=new reservation
   public booking = {
     // bookingId:'',
     source:localStorage.getItem("start"),
