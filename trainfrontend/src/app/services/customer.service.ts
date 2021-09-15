@@ -15,7 +15,7 @@ export class CustomerService {
   }
 
   public checkAvailabilty(seattype:any){
-    return this.http.get(`${baseUrl}/booking/`+ localStorage.getItem("tid")+`/`+seattype)
+    return this.http.get(`${baseUrl}/booking/`+ localStorage.getItem("id")+`/`+seattype)
     
   
   }
