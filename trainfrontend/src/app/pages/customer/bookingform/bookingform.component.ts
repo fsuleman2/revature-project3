@@ -33,5 +33,9 @@ export class BookingformComponent implements OnInit {
         )
     }
 
+    onSubmit(){
+      
+    }
+
 
 }

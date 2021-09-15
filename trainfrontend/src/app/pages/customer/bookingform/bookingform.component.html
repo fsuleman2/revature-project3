@@ -1,4 +1,4 @@
-<form> 
+<form (ngSubmit)="onSubmit()"> 
      <!-- //[formGroup]="bookingForm" //(ngSubmit)="onSubmit()" -->
 
     <label for="seattype" formControlName="seattype">Choose type of Coach:</label>
@@ -10,7 +10,7 @@
     </select>
 
     <button type="submit" (click)="checkavailabilty(booking.seattype)">Check Availability</button>
-</form>
+</form >
 <div *ngIf="flag,else elseblock">
     <form>
         <label>
@@ -29,6 +29,8 @@
             Physical Disabled:
             <input type="text" formControlName="ph">
         </label>
+
+        <button type="button" (click)="checkprice(seattype,distanc)">Check price</button>
     </form>
    
 </div>
