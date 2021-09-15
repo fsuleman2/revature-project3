@@ -19,4 +19,10 @@ export class CustomerService {
     
   
   }
+
+
+  //making payment request service
+  public createPayment(amount:any){
+    return this.http.post(`${baseUrl}/customer/create_order`,amount)
+  }
 }

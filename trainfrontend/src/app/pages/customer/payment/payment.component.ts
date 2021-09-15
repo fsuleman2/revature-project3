@@ -1,0 +1,104 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
+import { PaymentService } from 'src/app/services/payment.service';
+import Swal from 'sweetalert2';
+declare var Razorpay:any;
+declare var route:any;
+@Component({
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.css']
+})
+export class PaymentComponent implements OnInit {
+public paymentDetails={
+  amount:'',
+  orderinfo:'order created'
+}
+  constructor(private paymentService:CustomerService,route:Router) { }
+
+  ngOnInit(): void {
+  }
+  /*
+  
+  this.customerService.addCustomer(this.customer).subscribe(
+  (data:any)=>{
+    console.log(data);
+    Swal.fire('Successfully done !!', 'User id is ' + data.cId, 'success').then((e)=>{
+      this.route.navigate(['/login'])
+    })
+  },
+  (error) => {
+    //error
+    console.log(error);
+    // alert('something went wrong');
+    console.log(error.error.text)
+    this.snack.open('User Already Exist with this Username','' ,{
+      duration: 3000,
+    });
+  }
+);
+  
+  */
+paymentStart(){
+  this.paymentService.createPayment(this.paymentDetails).subscribe(
+    (data:any)=>{
+      console.log(data);
+      if(data.status == 'created'){
+        let options={
+          key:'rzp_test_iqRjbnSjncHo5L',
+          amount:data.amount,
+          currency:'INR',
+          name:"Revature Railways",
+          description:'Booking',
+          image:"https://cdn4.vectorstock.com/i/1000x1000/38/13/digital-wallet-e-payment-logo-design-vector-28823813.jpg",
+          order_id:data.id,
+          handler:function(data:any){
+            console.log(data.razorpay_payment_id);
+            console.log(data.razorpay_order_id);
+            console.log(data.razorpay_signature);
+            Swal.fire('Payment Success', '','success').then((e)=>{
+              window.location.href="'customer-dashboard'"
+            })
+          },
+          prefill:{
+            name:'',
+            email:'',
+            contact:'',
+          },
+          notes:{
+            address:'tamil nadu workfella',
+          },
+          theme: {
+            color: "#3399cc"
+        },
+
+  
+        };
+//  td:traindetails=new traindetails;
+var rzp1 = new Razorpay(options)
+rzp1.on("payment.failed",function (data:any){
+  console.log(data.error.code);
+  console.log(data.error.description);
+  console.log(data.error.source);
+  console.log(data.error.step);
+  console.log(data.error.reason);
+  console.log(data.error.metadata.order_id);
+  console.log(data.error.metadata.payment_id);
+  alert("payment failed");
+  
+})
+rzp1.open();
+      }
+    
+    },
+  (error:any)=>{
+    console.log(error);
+}
+  );
+}
+}
+function swal(arg0: string, arg1: string, arg2: string) {
+  throw new Error('Function not implemented.');
+}
+
