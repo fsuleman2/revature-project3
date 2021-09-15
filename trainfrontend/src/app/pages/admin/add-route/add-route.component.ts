@@ -12,21 +12,21 @@ import Swal from 'sweetalert2';
 export class AddRouteComponent implements OnInit {
   tId: any;
   tName: any;
-routes = 
-  {
-    arrival: 0,
-    date: 0,
-    depart: 0,
-    distance: 0,
-    startpoint: "",
-    station: 0,
-    td: {
-      tid: 0
+  routes =
+    {
+      arrival: 0,
+      date: 0,
+      depart: 0,
+      distance: 0,
+      startpoint: "",
+      station: 0,
+      td: {
+        tid: 0
+      }
     }
-  }
 
   constructor(private _route: ActivatedRoute,
-    private route:Router,
+    private route: Router,
     private _stop: RoutesService) { }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ routes =
         Swal.fire('Success ', 'station Added. Add Another one', 'success').then((e) => {
           this.route.navigate(['admin/trains'])
         })
-;
+          ;
         this.routes.arrival = 0;
         this.routes.date = 0;
         this.routes.depart = 0;

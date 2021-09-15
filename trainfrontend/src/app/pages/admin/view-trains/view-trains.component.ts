@@ -26,7 +26,7 @@ export class ViewTrainsComponent implements OnInit {
     availAcSittingSeat: "",
     totalNonAcSleeperSeat: "",
     availNonAcSleeperSeat: "",
-    totalNonAcSittingSeat:"",
+    totalNonAcSittingSeat: "",
     availNonAcSittingSeat: "",
     category: {
       catId: "",
@@ -43,7 +43,7 @@ export class ViewTrainsComponent implements OnInit {
         this.trains = data;
         console.log(this.trains);
       },
-      (error:any) => {
+      (error: any) => {
         console.log(error);
         Swal.fire('Error !', 'Error in loading data !', 'error');
       }

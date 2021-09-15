@@ -9,21 +9,21 @@ import Swal from 'sweetalert2';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-isLoggedIn:any=false
-user:any='admin';
-  constructor(public login:LoginService,private route:Router) { }
+  isLoggedIn: any = false
+  user: any = 'admin';
+  constructor(public login: LoginService, private route: Router) { }
 
   ngOnInit(): void {
-    this.isLoggedIn=this.login.isLoggedIn();
+    this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
     this.login.loginStatusSubject.asObservable().subscribe(
-      (data:any)=>{
-        this.isLoggedIn=this.login.isLoggedIn();
-      this.user = this.login.getUser();
+      (data: any) => {
+        this.isLoggedIn = this.login.isLoggedIn();
+        this.user = this.login.getUser();
       }
     );
   }
-  public logout(){
+  public logout() {
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -37,9 +37,9 @@ user:any='admin';
         // this.route.navigate(['/login'])
         localStorage.clear();
         window.location.reload();
-        
+
       }
     })
-   
+
   }
 }

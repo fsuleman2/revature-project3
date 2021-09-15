@@ -8,19 +8,11 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user:any = null;
-  constructor(private login: LoginService) {}
+  user: any = null;
+  constructor(private login: LoginService) { }
 
   ngOnInit(): void {
     this.user = this.login.getUser();
-    // this.login.getCurrentUser().subscribe(
-    //   (user: any) => {
-    //     this.user = user;
-    //   },
-    //   (error) => {
-    //     alert('error');
-    //   }
-    // );
   }
 
 }
