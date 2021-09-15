@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from 'src/app/services/booking.service';
 
+
+
 @Component({
   selector: 'app-bookingform',
   templateUrl: './bookingform.component.html',
@@ -13,46 +15,109 @@ export class BookingformComponent implements OnInit {
   ngOnInit(): void {
   }
   public booking = {
-    seattype: '',
-    pname: '',
-    page: 0,
-    pgender: '',
-    disable: ''
-
+    bookingId:'',
+    source:localStorage.getItem("start"),
+    destination:localStorage.getItem("end"),
+    travelDate:localStorage.getItem("date"),
+    coachType:'',
+    pName:'',
+    pAge:0,
+    pGender:'',
+    pDisabled:'',
+    price:0,
+    totalDistance:localStorage.getItem("dist"),
+    seatNumber:'',
+    coachId:'',
+    bookingDate:'2021-09-11',
+    td:{
+      tid:localStorage.getItem("tid")
+    },
+    cust:{
+      cId:0,
+      username:localStorage.getItem("userid")
+    }
   }
 
   flag=false;
+  bool=false;
   msg:any='';
 
 
     checkavailabilty(){
 
       console.log("button clicked ok")
-        this.service.checkAvailableSeat(this.booking.seattype).subscribe(
+        this.service.checkAvailableSeat(this.booking.coachType).subscribe(
           (Response:any)=>{
             console.log(Response)
             this.flag=Response;
+            if(this.flag==false)
+            this.bool=true
           },
           (err:any)=>{
 
           }
         );
     }
-    price:any='';
+    distance:any='';
     finalprice:number=0;
-    t:any=localStorage.getItem("userid");
 
     checkPrice(){
-      
-      this.price=localStorage.getItem("dist");
-      this.finalprice=this.price*2;
+      this.distance=localStorage.getItem("dist");
+      this.finalprice=this.distance*2;
+      if(this.booking.coachType=="availAcSleeperSeat")
+      {
+        this.finalprice=this.finalprice+(this.finalprice*60)/100;
+        if(this.booking.pAge<=5)
+        this.finalprice=0;
+        else if(this.booking.pAge>=60)
+        this.finalprice=this.finalprice-(this.finalprice*10)/100;
+        else
+        this.finalprice=this.finalprice
+      }
+      else if(this.booking.coachType=="availAcSittingSeat")
+      {
+        this.finalprice=this.finalprice+(this.finalprice*40)/100;
+        if(this.booking.pAge<=5)
+        this.finalprice=0;
+        else if(this.booking.pAge>=60)
+        this.finalprice=this.finalprice-(this.finalprice*10)/100;
+        else
+        this.finalprice=this.finalprice
+      }
+      else if(this.booking.coachType=="availNonAcSleeperSeat")
+      {
+        this.finalprice=this.finalprice+(this.finalprice*35)/100;
+        if(this.booking.pAge<=5)
+        this.finalprice=0;
+        else if(this.booking.pAge>=60)
+        this.finalprice=this.finalprice-(this.finalprice*10)/100;
+        else
+        this.finalprice=this.finalprice
+      }
+      else
+      {
+        if(this.booking.pAge<=5)
+        this.finalprice=0;
+        else if(this.booking.pAge>=60)
+        this.finalprice=this.finalprice-(this.finalprice*10)/100;
+        else
+        this.finalprice=this.finalprice
+      }
     }
-    //f:any=this.booking.page;
+
+source=localStorage.getItem("start");
     confirmbooking(){
       console.log(this.booking);
-      // localStorage.setItem("pname",this.booking.pname)
-      // localStorage.setItem("page",this.f)
-      // localStorage.setItem("pgender",this.booking.pgender)
-      // localStorage.setItem("disable",this.booking.disable)
+      this.booking.price=this.finalprice;
+      this.service.addBooking(this.booking).subscribe(
+        (Response:any)=>{
+          alert("data submitted");
+          console.log(this.booking)
+        },
+      (err:any)=>{
+        alert("failed to add booking")
+      }
+      )
+
     }
   }
