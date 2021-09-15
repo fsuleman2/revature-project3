@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer-login',
@@ -70,6 +71,11 @@ loginData={
       },
       (error:any)=>{
         console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid Details !! Try Again!',
+        })
       }
     );
   }
