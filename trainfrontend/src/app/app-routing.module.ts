@@ -85,7 +85,7 @@ const routes: Routes = [
   {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
-    pathMatch: 'full',
+    // pathMatch: 'full',
     canActivate: [NormalGuard],
     children: [
       {

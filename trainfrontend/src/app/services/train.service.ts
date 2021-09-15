@@ -23,4 +23,31 @@ export class TrainService {
     console.log("service layer" + search)
     return this.https.get(`http://localhost:9848/train/route/all/` + search.start + `/` + search.end + `/` + search.date);
   }
+
+  
+ 
+
+  //delete train
+  // public deleteTrain(tId: any) {
+  //   return this._http.delete(`${baseUrl}/train/${tId}`);
+  // }
+
+  // //get the single quiz
+
+  // public getQuiz(qId) {
+  //   return this._http.get(`${baseUrl}/quiz/${qId}`);
+  // }
+
+  // //update quiz
+  // public updateQuiz(quiz) {
+  //   return this._http.put(`${baseUrl}/quiz/`, quiz);
+  // }
+
+  // //get quizzes of category
+  // public getQuizzesOfCategory(cid) {
+  //   return this._http.get(`${baseUrl}/quiz/category/${cid}`);
+  // }
+
+
+
 }
