@@ -18,4 +18,8 @@ public interface AdminDao extends JpaRepository<TrainDetails, Integer> {
 	
 	@Query(value ="select * from train_details where date =:d",nativeQuery=true)
 	public List<TrainDetails> getTrainByDate(@Param("d") Date date);
+	
+	@Query(value = "select :seat from train_details where tid=:id ", nativeQuery = true)
+	public int getAvailableSeat(@Param("id") int  trainid,@Param("seat") String seat);
+
 }
