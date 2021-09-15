@@ -71,12 +71,12 @@ const routes: Routes = [
       },
       {
         // path:'view-routes/:tid/:tname',
-        path:'view-routes/:tid/:tname',
-        component:ViewTrainRoutesComponent
+        path: 'view-routes/:tid/:tname',
+        component: ViewTrainRoutesComponent
       },
       {
         path: 'add-route/:tid/:tname',
-        component:AddRouteComponent,
+        component: AddRouteComponent,
       },
 
 
@@ -93,11 +93,11 @@ const routes: Routes = [
         component: CustomerWelcomeComponent,
 
       },
-     
+
     ]
   },
   {
-    path:'booking',
+    path: 'booking',
     component: BookingformComponent,
   }
 ];

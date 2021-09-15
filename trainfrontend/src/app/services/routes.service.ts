@@ -7,9 +7,9 @@ import baseUrl from './helper';
 })
 export class RoutesService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public getTrainsOfRoute(tid:any){
+  public getTrainsOfRoute(tid: any) {
     return this.http.get(`${baseUrl}/train/route/${tid}`);
   }
 

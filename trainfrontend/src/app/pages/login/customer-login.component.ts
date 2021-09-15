@@ -10,66 +10,66 @@ import Swal from 'sweetalert2';
   styleUrls: ['./customer-login.component.css']
 })
 export class CustomerLoginComponent implements OnInit {
-loginData={
-  username:'',
-  password:''
-}
-  constructor(private snack:MatSnackBar,private loginService:LoginService, private route:Router) { }
+  loginData = {
+    username: '',
+    password: ''
+  }
+  constructor(private snack: MatSnackBar, private loginService: LoginService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
   //form submit
-  formSubmit(){
+  formSubmit() {
     // alert("cliekd")
-    if(this.loginData.username.trim()==''||this.loginData.username==null){
-      this.snack.open("Username is required!!",'',{
-        duration:3000
+    if (this.loginData.username.trim() == '' || this.loginData.username == null) {
+      this.snack.open("Username is required!!", '', {
+        duration: 3000
       });
       return;
     }
-    if(this.loginData.password.trim()==''||this.loginData.password==null){
-      this.snack.open("password is required!!",'',{
-        duration:3000
+    if (this.loginData.password.trim() == '' || this.loginData.password == null) {
+      this.snack.open("password is required!!", '', {
+        duration: 3000
       });
       return;
     }
     //request to server for generating token
     this.loginService.generateToken(this.loginData).subscribe(
-      (data:any)=>{
+      (data: any) => {
         console.log("Success")
         console.log(data)
         //login..
         this.loginService.loginUser(data.token);
         this.loginService.getCurrentUser().subscribe(
-          (data:any)=>{
+          (data: any) => {
             this.loginService.setUser(data);
             console.log(data)
-            //redirect ..ADMIN dashboard else NORMAL... user dashboard 
-            if(this.loginService.getUserRole()=="ADMIN"){
+            //redirect ..ADMIN dashboard else NORMAL... user dashboard
+            if (this.loginService.getUserRole() == "ADMIN") {
               this.route.navigate(['admin']);
               this.loginService.loginStatusSubject.next(true);
-              
+
             }
-            else if(this.loginService.getUserRole()=='NORMAL'){
+            else if (this.loginService.getUserRole() == 'NORMAL') {
               this.route.navigate(['customer-dashboard']);
               this.loginService.loginStatusSubject.next(true);
             }
-            else{
+            else {
               this.loginService.logout();
               location.reload();
             }
           },
-        (error:any)=>{
-          console.log(error);
-          this.snack.open("Invalid Details !! Try Again",'',{
-            duration:300
-          })
-          
-        }
+          (error: any) => {
+            console.log(error);
+            this.snack.open("Invalid Details !! Try Again", '', {
+              duration: 300
+            })
+
+          }
         );
       },
-      (error:any)=>{
+      (error: any) => {
         console.log(error);
         Swal.fire({
           icon: 'error',
