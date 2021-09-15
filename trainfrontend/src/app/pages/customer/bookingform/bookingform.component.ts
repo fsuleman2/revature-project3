@@ -40,6 +40,7 @@ export class BookingformComponent implements OnInit {
     }
     price:any='';
     finalprice:number=0;
+    t:any=localStorage.getItem("userid");
     checkPrice(){
       this.price=localStorage.getItem("dist");
       this.finalprice=this.price*2;
