@@ -1,0 +1,39 @@
+<form> 
+     <!-- //[formGroup]="bookingForm" //(ngSubmit)="onSubmit()" -->
+
+    <label for="seattype" formControlName="seattype">Choose type of Coach:</label>
+    <select ([ngModel])="booking.seattype" id="seattype" name="seattype">
+        <option value="avail_non_ac_sitting_seat">Non-AC Sitting Coach</option>
+        <option value="avail_ac_sitting_seat">AC Sitting Coach</option>
+        <option value="avail_non_ac_sleeper_seat">Non-AC Sleeping Coach</option>
+        <option value="avail_ac_sleeper_seat">AC Sleeping Coach</option>
+    </select>
+
+    <button type="submit" (click)="checkavailabilty(booking.seattype)">Check Availability</button>
+</form>
+<div *ngIf="flag,else elseblock">
+    <form>
+        <label>
+            Passenger Name:
+            <input type="text" formControlName="name">
+        </label>
+        <label>
+            Passenger Age:
+            <input type="number" formControlName="age">
+        </label>
+        <label>
+            Gender:
+            <input type="text" formControlName="gender">
+        </label>
+        <label>
+            Physical Disabled:
+            <input type="text" formControlName="ph">
+        </label>
+    </form>
+   
+</div>
+<div>
+    <ng-template #elseblock>
+    {{msg}}
+</ng-template>
+</div>

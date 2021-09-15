@@ -13,4 +13,10 @@ export class CustomerService {
   public addCustomer(customer:any){
     return this.http.post(`${baseUrl}/customer/`,customer)
   }
+
+  public checkAvailabilty(seattype:any){
+    return this.http.get(`${baseUrl}/booking/`+ localStorage.getItem("id")+`/`+seattype)
+    
+  
+  }
 }

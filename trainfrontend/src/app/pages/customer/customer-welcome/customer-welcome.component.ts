@@ -26,16 +26,26 @@ export class CustomerWelcomeComponent implements OnInit {
   searchtrain() {
     this.service.searchTrain(this.search).subscribe(
       (Response: any) => {
-        this.bool=true
+        this.bool = true
         console.log(Response)
         this.routedetails = Response
+        localStorage.setItem("start", this.search.start);
+        localStorage.setItem("end", this.search.end);
+        localStorage.setItem("date", this.search.date);
+
       },
       (err: any) => {
         // window.location.reload();
         this.bool = false;
-        this.msg= "Trains are not running between these Routes";
+        this.msg = "Trains are not running between these Routes";
         // alert("Trains are not running between these Routes")
       });
   }
+
+  dataForBook(id: any, dist: any) {
+    localStorage.setItem("id", id);
+    localStorage.setItem("dist", dist);
+  }
+
 
 }
