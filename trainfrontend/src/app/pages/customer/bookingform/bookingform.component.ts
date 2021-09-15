@@ -40,8 +40,19 @@ export class BookingformComponent implements OnInit {
     }
     price:any='';
     finalprice:number=0;
+    t:any=localStorage.getItem("userid");
+
     checkPrice(){
+      
       this.price=localStorage.getItem("dist");
       this.finalprice=this.price*2;
+    }
+    //f:any=this.booking.page;
+    confirmbooking(){
+      console.log(this.booking);
+      // localStorage.setItem("pname",this.booking.pname)
+      // localStorage.setItem("page",this.f)
+      // localStorage.setItem("pgender",this.booking.pgender)
+      // localStorage.setItem("disable",this.booking.disable)
     }
   }
