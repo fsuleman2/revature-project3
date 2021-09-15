@@ -20,6 +20,7 @@ import { AddCategoryComponent } from './pages/admin/add-category/add-category.co
 import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
 import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
+import { PaymentComponent } from './pages/customer/payment/payment.component';
 
 
 
@@ -85,7 +86,10 @@ const routes: Routes = [
   {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
+<<<<<<< HEAD
     // pathMatch: 'full',
+=======
+>>>>>>> payment
     canActivate: [NormalGuard],
     children: [
       {
@@ -94,12 +98,25 @@ const routes: Routes = [
 
       },
       {
+<<<<<<< HEAD
         path: 'booking',
         component: BookingformComponent,
       }
     ]
   },
   
+=======
+        path:'booking1',
+        component: BookingformComponent,
+      },
+      {
+        path:'payment',
+        component:PaymentComponent
+      },
+     
+    ]
+  },
+>>>>>>> payment
 ];
 
 @NgModule({
