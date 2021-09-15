@@ -7,11 +7,13 @@ import java.util.Set;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,7 +37,7 @@ public class CustomerController {
 	@Autowired
 	private PaymentRepository paymentRepository;
 	
-	@PostMapping("/create_order")
+	@PostMapping("/create_payment")
 	@ResponseBody
 	public String createOrder(@RequestBody Map<String, Object> data,Principal principal) throws Exception {
 //		System.out.println("im executing");
@@ -52,17 +54,29 @@ public class CustomerController {
 		Order order=client.Orders.create(ob);
 		System.out.println(order);
 		//we save this data inside data base
-//		PaymentDetails paymentDetails = new PaymentDetails();
-//		paymentDetails.setAmount(order.get("amount")+"");
-//		paymentDetails.setOrderId(order.get("order_id"));
-//		paymentDetails.setStatus("created");
-//		paymentDetails.setCustomer(this.customerService.getCustomerByUsername(principal.getName()));
-//		paymentDetails.setReceipt(order.get("receipt"));
-//		
-//		this.paymentRepository.save(paymentDetails);
+		PaymentDetails paymentDetails = new PaymentDetails();
+		int amount1 = Integer.parseInt(data.get("amount").toString());
+		System.out.println(amount1);
+//		Integer result1=amount1/100;
+		paymentDetails.setAmount(amount1);
+		paymentDetails.setPaymentId(order.get("id"));
+		paymentDetails.setStatus("paid");
+		paymentDetails.setCustomer(this.customerService.getCustomerByUsername(principal.getName()));
+		paymentDetails.setReceipt(order.get("receipt"));
+		
+		this.paymentRepository.save(paymentDetails);
 		return order.toString();
 	}
-	
+	@PutMapping("/update_payment")
+	public ResponseEntity<?> updatePayment(@RequestBody Map<String, Object> data){
+		PaymentDetails paymentDetails1 = this.paymentRepository.findByPaymentId(data.get("order_id").toString());
+		
+		paymentDetails1.setPaymentId(data.get("payment_id").toString());
+		this.paymentRepository.save(paymentDetails1);
+		System.out.println(data);
+		System.out.println(data);
+		return ResponseEntity.ok(paymentDetails1);
+	}
 	
 	/***************************************************/
 	

@@ -23,6 +23,11 @@ export class CustomerService {
 
   //making payment request service
   public createPayment(amount:any){
-    return this.http.post(`${baseUrl}/customer/create_order`,amount)
+    return this.http.post(`${baseUrl}/customer/create_payment`,amount)
+  }
+
+  //update payment details
+  public updatePayment(updateDetails:any){
+    return this.http.put(`${baseUrl}/customer/update_payment`,updateDetails);
   }
 }

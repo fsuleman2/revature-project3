@@ -11,7 +11,7 @@ public class PaymentDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long orderId;
-	private String amount;
+	private Integer amount;
 	private String receipt;
 	private String status;
 	@ManyToOne
@@ -26,10 +26,10 @@ public class PaymentDetails {
 	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
-	public String getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 	public String getReceipt() {
@@ -56,7 +56,7 @@ public class PaymentDetails {
 	public void setPaymentId(String paymentId) {
 		this.paymentId = paymentId;
 	}
-	public PaymentDetails(Long orderId, String amount, String receipt, String status, Customer customer,
+	public PaymentDetails(Long orderId, Integer amount, String receipt, String status, Customer customer,
 			String paymentId) {
 		super();
 		this.orderId = orderId;

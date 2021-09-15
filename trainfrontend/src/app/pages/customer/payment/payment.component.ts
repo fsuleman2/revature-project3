@@ -57,9 +57,13 @@ paymentStart(){
             console.log(data.razorpay_payment_id);
             console.log(data.razorpay_order_id);
             console.log(data.razorpay_signature);
+            //payment successfull
             Swal.fire('Payment Success', '','success').then((e)=>{
               window.location.href="'customer-dashboard'"
             })
+            updatePaymentOnServer(data.payment_id,data.order_id,data.status);
+
+            
           },
           prefill:{
             name:'',
@@ -85,7 +89,6 @@ rzp1.on("payment.failed",function (data:any){
   console.log(data.error.reason);
   console.log(data.error.metadata.order_id);
   console.log(data.error.metadata.payment_id);
-  alert("payment failed");
   
 })
 rzp1.open();
@@ -94,11 +97,36 @@ rzp1.open();
     },
   (error:any)=>{
     console.log(error);
+    Swal.fire('Failed','oops payment faield!!','error')
 }
   );
 }
+updatePaymentOnServer(payment_id: any, order_id: any, status: any) {
+  const updateDetails={
+  payment_id:payment_id,
+  order_id:order_id,
+  status:status
+  }
+  this.paymentService.updatePayment(updateDetails).subscribe(
+    (data:any)=>{
+      Swal.fire('Payment Success', '','success').then((e)=>{
+        window.location.href="'customer-dashboard'"
+      })
+    },
+    (error:any)=>{
+      console.log(error);
+      Swal.fire('Failed','oops payment faield!!','error')
+    }
+  );
 }
-function swal(arg0: string, arg1: string, arg2: string) {
+}
+
+
+
+
+
+
+function updatePaymentOnServer(payment_id: any, order_id: any, status: any) {
   throw new Error('Function not implemented.');
 }
 
