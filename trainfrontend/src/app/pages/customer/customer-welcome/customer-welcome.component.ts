@@ -46,7 +46,7 @@ export class CustomerWelcomeComponent implements OnInit {
     localStorage.setItem("id", id);
     localStorage.setItem("dist", dist);
     // routerLink="/booking" 
-    window.location.href="/customer-dashboard/booking"
+    //window.location.href="/customer-dashboard/booking"
   }
 
 
