@@ -36,4 +36,9 @@ public class ReservationController {
 	public List<ReservationForm> viewReservationFormByCustId(@PathVariable("custId") Long custId) {
 		return this.reservationService.getReservationByCustId(custId);
 	}
+	
+	@GetMapping("/checkseats/{seat}/{id}")
+	  public boolean checkSeatAvail(@PathVariable String seat,@PathVariable int id) {
+	    return this.reservationService.checkSeatAvail(seat,id);
+	  }
 }

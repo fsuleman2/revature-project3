@@ -93,13 +93,13 @@ const routes: Routes = [
         component: CustomerWelcomeComponent,
 
       },
-
+      {
+        path: 'booking',
+        component: BookingformComponent,
+      }
     ]
   },
-  {
-    path: 'booking',
-    component: BookingformComponent,
-  }
+  
 ];
 
 @NgModule({

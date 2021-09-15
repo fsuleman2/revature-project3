@@ -1,39 +1,46 @@
- <form  (ngSubmit)="onSubmit()"> 
+<form (ngSubmit)="checkavailabilty()">
+  <mat-form-field appearance="fill" class="mt20 w100">
+    <mat-label>Categories</mat-label>
+    <mat-select name="category" [(ngModel)]="booking.seattype">
+      <mat-option value="availAcSittingSeat">availAcSittingSeat</mat-option>
+      <mat-option value="availNonAcSittingSeat">availNonAcSittingSeat</mat-option>
+      <mat-option value="availNonAcSleeperSeat">availNonAcSleeperSeat</mat-option>
+      <mat-option value="availAcSleeperSeat">availAcSleeperSeat</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <label for="seattype">Choose type of Coach:</label>
-    <select ([ngModel])="booking.seattype" id="seattype" name="seattype">
-        <option value="availNonAcSittingSeat">Non-AC Sitting Coach</option>
-        <option value="availAcSittingSeat">AC Sitting Coach</option>
-        <option value="availNonAcSleeperSeat">Non-AC Sleeping Coach</option>
-        <option value="availAcSleeperSeat">AC Sleeping Coach</option>
-    </select>
+  <br>
+  <button type="submit" class="btn btn-primary">Check Availability</button>
+</form>
+<hr>
 
-    <button type="submit" (click)="checkavailabilty(booking.seattype)">Check Availability</button>
-</form > 
-<div *ngIf="flag,else elseblock">
-  <form>
-    <label>
-      Passenger Name:
-      <input type="text" formControlName="name">
-    </label>
-    <label>
-      Passenger Age:
-      <input type="number" formControlName="age">
-    </label>
-    <label>
-      Gender:
-      <input type="text" formControlName="gender">
-    </label>
-    <label>
-      Physical Disabled:
-      <input type="text" formControlName="ph">
-    </label>
-  </form>
+<form *ngIf="flag,else elseblock">
+  <label>
+    Passenger Name:
+    <input type="text" >
+  </label>
+  <br>
+  <label>
+    Passenger Age:
+    <input type="number">
+  </label>
+  <br>
+  <label>
+    Gender:
+    <input type="text">
+  </label>
+  <br>
+  <label>
+    Physical Disabled:
+    <input type="text" >
+  </label>
+  <br>
+  <button type="submit" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
+  {{finalprice}}
+</form>
 
-</div>
 <div>
   <ng-template #elseblock>
-    {{msg}}
+    <h1>Seat Not Available</h1>
   </ng-template>
 </div>
-<h1>shivam revature</h1>

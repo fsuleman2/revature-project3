@@ -11,10 +11,9 @@ export class BookingService {
   public getTrainById(tid:any){
     return this.https.get(`http://localhost:9848/train/trainbyid/`+ tid);
   }
+  public checkAvailableSeat(seattype:any){
+    return this.https.get(`http://localhost:9848/reserve/checkseats/`+seattype+`/`+localStorage.getItem("tid"));
+  }
 
-  // public checkAvailabilty(seattype:any){
-  //   return this.http.get(`${baseUrl}/booking/`+ localStorage.getItem("tid")+`/`+seattype)
-    
-  
-  // }
 }
+
