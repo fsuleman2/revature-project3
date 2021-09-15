@@ -19,17 +19,17 @@
  <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">  
   <label>
     Passenger Name:
-    <br><input type="text" [(ngModel)]="booking.pName" placeholder="Enter Passenger's name" required id="pname" name="pname">
+    <br><input type="text" [(ngModel)]="booking.pname" placeholder="Enter Passenger's name" required id="pname" name="pname">
   </label>
   <br>
   <label>
     Passenger Age:
-    <br><input type="number" [(ngModel)]="booking.pAge" placeholder="Enter Passenger's age" required id="page" name="page">
+    <br><input type="number" [(ngModel)]="booking.page" placeholder="Enter Passenger's age" required id="page" name="page">
   </label>
   <br>
   <mat-form-field appearance="fill" class="mt20 w100">
     <mat-label>Select Gender</mat-label>
-    <mat-select name="category" [(ngModel)]="booking.pGender">
+    <mat-select name="category" [(ngModel)]="booking.pgender">
       <mat-option value="male">Male</mat-option>
       <mat-option value="Female">Female</mat-option>
     </mat-select>
@@ -37,9 +37,9 @@
   <br>
   <mat-form-field appearance="fill" class="mt20 w100">
     <mat-label>Physically Disabled</mat-label>
-    <mat-select name="category" [(ngModel)]="booking.pDisabled">
-      <mat-option value="1">Disabled</mat-option>
-      <mat-option value="0">Not Disabled</mat-option>
+    <mat-select name="category" [(ngModel)]="booking.pdisabled">
+      <mat-option value="true">Disabled</mat-option>
+      <mat-option value="false">Not Disabled</mat-option>
     </mat-select>
   </mat-form-field>
   <br>

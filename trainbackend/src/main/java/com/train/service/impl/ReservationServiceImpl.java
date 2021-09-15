@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.train.model.Customer;
 import com.train.model.ReservationForm;
 import com.train.model.TrainDetails;
 import com.train.repository.AdminDao;
+import com.train.repository.CustomerRepository;
 import com.train.repository.ReservationRepository;
 import com.train.service.ReservationService;
 @Service
@@ -17,9 +19,16 @@ public class ReservationServiceImpl implements ReservationService{
 	private ReservationRepository reservationRepository;
 	@Autowired
 	private AdminDao admindao;
+	@Autowired
+	private CustomerRepository cd;
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
+		List<Customer> cust=cd.findAll();
+		for (Customer customer : cust) {
+			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
+			reservationForm.getCustomer().setcId(customer.getcId());
+		}
 		TrainDetails td=this.admindao.getAvailableSeat(reservationForm.getTrainDetails().getTid());
 		
 		  if(reservationForm.getCoachType().equals("availAcSleeperSeat"))
