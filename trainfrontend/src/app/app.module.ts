@@ -39,6 +39,8 @@ import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 import { PaymentComponent } from './pages/customer/payment/payment.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { TicketComponent } from './pages/customer/ticket/ticket.component';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     ViewTrainRoutesComponent,
     AddRouteComponent,
     BookingformComponent,
-    PaymentComponent
+    PaymentComponent,
+    TicketComponent
 
 
 
@@ -82,7 +85,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatCardModule,
     MatIconModule,
     MatSelectModule,
-    MatStepperModule, ReactiveFormsModule
+    MatStepperModule, ReactiveFormsModule,
+    QRCodeModule
 
   ],
   providers: [authInterceptorProviders],

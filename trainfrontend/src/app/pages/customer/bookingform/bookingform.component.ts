@@ -47,6 +47,7 @@ export class BookingformComponent implements OnInit {
     pgender: '',
     pdisabled: '',
     price: 0,
+    status:false,
     totalDistance: localStorage.getItem("dist"),
     seatNumber: '',
     coachId: '',
