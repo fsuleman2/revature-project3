@@ -32,12 +32,11 @@ public class ReservationServiceImpl implements ReservationService{
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
 
 
-		reservationForm.setStatus(true);
 
-//		reservationForm.setStatus(false);
+		reservationForm.setStatus(false);
 
 
-		//reservationForm.setStatus(true);
+
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
 			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
