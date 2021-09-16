@@ -30,15 +30,9 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		reservationForm.setStatus(true);
-=======
-//		reservationForm.setStatus(false);
->>>>>>> demo
-=======
-		//reservationForm.setStatus(true);
->>>>>>> shivu
+
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
 			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
@@ -73,12 +67,10 @@ public class ReservationServiceImpl implements ReservationService{
 		        reservationForm.setCoachId(Coach_Id);
 		        reservationForm.setSeatNumber(seat_number_allocated);
 		        int avail=td.getAvailAcSleeperSeat();
-<<<<<<< HEAD
-		        
-		        td.setAvailAcSleeperSeat(avail-1);
-=======
+
+
 		        td.setAvailAcSleeperSeat(avail-1); //updating available seats
->>>>>>> demo
+
 		        admindao.save(td);
 		        return this.reservationRepository.save(reservationForm);
 		    	
