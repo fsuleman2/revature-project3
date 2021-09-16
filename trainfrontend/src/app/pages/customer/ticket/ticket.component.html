@@ -1,63 +1,62 @@
-<div>
-    
-</div>
-
 <section class="container">
-    <div class="form-control">
-        <h1>Ticket</h1>
-        <div class="row">
-        <article class="card fl-left">
-          <section class="date">
-            <time datetime="23th feb">
-              <span>{{item.passengerName}}</span>
-              <span>{{item.passengerAge}}</span>
-              <br>
-              <span>{{item.passengerGender}}</span>
-            </time>
+  <div class="form-control">
+    <h1>Ticket</h1>
+    <div class="row">
+      <article class="card fl-left">
+        <section class="date">
+          <time datetime="23th feb">
+            <span>{{item.passengerName}}</span>
+            <span>{{item.passengerAge}}</span>
+            <br>
+            <span>{{item.passengerGender}}</span>
+          </time>
         </section>
         <section class="card-cont">
-            <h1 style="color: red;">Revature Railways</h1> 
+          <h1 style="color: red;">Revature Railways</h1>
 
-            <div class="even-date">
-                <i class="fa fa-calendar fa-fw mr-1"></i>
-                <time> 
-                <span>{{item.travelDate}}</span>
-               </time> 
-             </div> 
-             <br>
-             <div>
-               <!-- <h3>
-                 Train Name : {{this.trainname}}
-                 Coach Id   : {{this.coachid}}
-                 Seat no.   : {{this.seatno}}
-               </h3> -->
-             </div>
-            <div class="even-info">
-              <i class="fa fa-map-marker fa-fw mr-1"></i>
-              <h2>
-                From: {{item.source}}
-                
-                <!-- {{this.ticketprice}} -->
-                <!-- nexen square for people australia, sydney -->
+          <div class="even-date">
+            <i class="fa fa-calendar fa-fw mr-1"></i>
+            <time>
+              <span>{{item.travelDate}}</span>
+            </time>
+          </div>
+          <br>
+          <div class="even-info">
+            <i class="fa fa-map-marker fa-fw mr-1"></i>
+            <h2>
+              From: {{item.source}}
+
+              <!-- {{this.ticketprice}} -->
+              <!-- nexen square for people australia, sydney -->
             </h2>
-            
-            </div>
-            <div class="even-info">
-              <i class="fa fa-map-marker fa-fw mr-1"></i>
-              <h2>
-                 To: {{item.destination}}
+
+          </div>
+          <div class="even-info">
+            <i class="fa fa-map-marker fa-fw mr-1"></i>
+            <h2>
+              To: {{item.destination}}
             </h2>
-            
-            </div>
-            <h3>
-              Distance(KM) : {{item.totalDistance}}
-           </h3>
-          </section>
-          <section class="card-cont">
-             <qr-code  [value]="qrInfo" [size]="size"></qr-code> <!--style="margin-left: 600px ;" -->
-             <img src="../../assets/img/Ticket.jpg" width="100" height="100">
-          </section>
-        </article>
-      </div>  
+
+          </div>
+          <h3>
+            Distance(KM) : {{item.totalDistance}}
+          </h3>
+          <h5>
+            Train Name:: {{this.item.trainname}}
+          </h5>
+          <h5>
+            Coach ID::{{this.item.coachid}}
+          </h5>
+          <h5>
+            SEAT NO::{{this.item.seatno}}
+          </h5>
+        </section>
+        <section class="card-cont">
+          <qr-code [value]="qrInfo" [size]="size"></qr-code>
+          <!--style="margin-left: 600px ;" -->
+          <img src="../../assets/img/Ticket.jpg" width="100" height="100">
+        </section>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
