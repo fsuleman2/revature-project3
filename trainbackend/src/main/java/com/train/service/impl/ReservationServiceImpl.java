@@ -31,7 +31,11 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
 
+
+
 		reservationForm.setStatus(false);
+
+
 
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
