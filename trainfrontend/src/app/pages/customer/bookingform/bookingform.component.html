@@ -54,52 +54,19 @@
       </mat-form-field>
     </div>
 
-    <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
-    <h1>{{finalprice}}</h1>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button type="button" (click)="checkPrice()" class="btn btn-primary" style="margin-left: 15px; margin-right: 20px;">Calculate price</button>
+      </div>
+      <h1 class="form-control">{{finalprice}}</h1>
+    </div>
 
-    <!-- <button type="button" class="btn btn-primary" matStepperNext>Next</button> -->
-    <!-- <button color="primary" mat-raised-button matStepperNext type="button">Next</button> -->
-    <!-- <app-payment></app-payment>  -->
     <div class="container text-center">
-      <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers" type="submit">Checkout</button>
+      <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers"
+        type="submit">Checkout</button>
     </div>
   </form>
 </div>
-
-<!-- <mat-stepper *ngIf="flag,else elseblock" class="example-stepper" [orientation]="(stepperOrientation | async)!"
-  [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-
-
-
-      </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Check Price">
-    <form [formGroup]="secondFormGroup">
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-        <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
-        <h1>{{finalprice}}</h1>
-      </mat-form-field>
-     <div class="container text-center">
-          <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers" type="submit">Confirm
-            Booking</button>
-        </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Pay</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper> -->
 
 <div>
   <ng-template #elseblock>
@@ -112,5 +79,3 @@
     <hr>
   </ng-template>
 </div>
-
-
