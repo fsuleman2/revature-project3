@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomePageComponent } from './pages/home/welcome-page.component';
 import { CustomerLoginComponent } from './pages/login/customer-login.component';
@@ -38,8 +38,7 @@ import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-t
 import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 import { PaymentComponent } from './pages/customer/payment/payment.component';
-
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -86,6 +85,7 @@ import { PaymentComponent } from './pages/customer/payment/payment.component';
     MatCardModule,
     MatIconModule,
     MatSelectModule,
+    MatStepperModule,ReactiveFormsModule
 
   ],
   providers: [authInterceptorProviders],
