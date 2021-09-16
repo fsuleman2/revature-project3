@@ -1,3 +1,39 @@
 <div>
-    <qr-code [value]="qrInfo" [size]="size"></qr-code>
+    
 </div>
+
+<section class="container">
+    <div class="form-control">
+        <h1>Ticket</h1>
+        <div class="row">
+        <article class="card fl-left">
+          <section class="date">
+            <time datetime="23th feb">
+              <span>{{item.passengerName}}</span><span>{{item.passengerAge}}</span>
+            </time>
+        </section>
+        <section class="card-cont">
+            <h1 style="color: red;">Revature Railways</h1>  
+            <div class="even-date">
+                <i class="fa fa-calendar"></i>
+                <time> 
+                <span>{{item.travelDate}}</span>
+                <span>08:55pm to 12:00 am</span> 
+               </time> 
+             </div> 
+            <div class="even-info">
+              <i class="fa fa-map-marker"></i>
+              <h2>
+                From: {{item.source}} || To: {{item.destination}}
+                <!-- nexen square for people australia, sydney -->
+            </h2>
+            </div>
+            <a>Ticket</a>
+          </section>
+          <section class="card-cont">
+             <qr-code  [value]="qrInfo" [size]="size"></qr-code> <!--style="margin-left: 600px ;" -->
+          </section>
+        </article>
+      </div>  
+    </div>
+  </section>

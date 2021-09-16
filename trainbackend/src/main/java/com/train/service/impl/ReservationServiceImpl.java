@@ -31,10 +31,14 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		reservationForm.setStatus(true);
 =======
 //		reservationForm.setStatus(false);
 >>>>>>> demo
+=======
+		//reservationForm.setStatus(true);
+>>>>>>> shivu
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
 			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
