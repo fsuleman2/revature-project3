@@ -11,8 +11,12 @@ export class BookingService {
   public getTrainById(tid:any){
     return this.https.get(`http://localhost:9848/train/trainbyid/`+ tid);
   }
-  public checkAvailableSeat(seattype:any){
-    return this.https.get(`http://localhost:9848/reserve/checkseats/`+seattype+`/`+localStorage.getItem("tid"));
+  public checkAvailableSeat(coachType:any){
+    return this.https.get(`http://localhost:9848/reserve/checkseats/`+coachType+`/`+localStorage.getItem("tid"));
+  }
+
+  public addBooking(booking:any){
+    return this.https.post(`http://localhost:9848/reserve/add`,booking);
   }
 
 }

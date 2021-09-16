@@ -31,7 +31,7 @@ public class ReservationForm {
 	private float price;
 	private int totalDistance;
 	private int seatNumber;
-	private int coachId;
+	private String coachId;
 	private Date bookingDate;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private TrainDetails trainDetails;
