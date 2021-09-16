@@ -24,6 +24,7 @@ import { PaymentComponent } from './pages/customer/payment/payment.component';
 import { TicketComponent } from './pages/customer/ticket/ticket.component';
 import { CancellationComponent } from './pages/customer/cancellation/cancellation.component';
 import { ViewBookingsComponent } from './pages/customer/view-bookings/view-bookings.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
 
 
 
@@ -116,6 +117,9 @@ const routes: Routes = [
       {
         path:'view-bookings',
         component:ViewBookingsComponent
+      },{
+        path:'customer-profile',
+        component:CustomerProfileComponent
       }
     ]
   },

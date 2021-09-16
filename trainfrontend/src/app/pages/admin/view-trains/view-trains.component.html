@@ -30,6 +30,9 @@
     <button mat-stroked-button color="primary" class="ml20">
       Non-Ac Seating: {{ q.availNonAcSittingSeat }}
     </button>
+    <button mat-stroked-button color="primary" class="ml20">
+      Train Time: {{ q.date }}
+    </button>
     <button [routerLink]="'/admin/route/' + q.tid" mat-flat-button color="primary" class="ml20">
       Update
     </button>

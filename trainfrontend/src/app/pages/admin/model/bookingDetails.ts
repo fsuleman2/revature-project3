@@ -1,9 +1,8 @@
 import { customer } from "./customer";
 import { traindetails } from "./traindetails";
 
-export class cancel{
-    cancelId:any;
-    reason:any;
+export class bookingDetails{
+    bookingId:any;
 	source:any;
 	destination:any;
 	travelDate:any;

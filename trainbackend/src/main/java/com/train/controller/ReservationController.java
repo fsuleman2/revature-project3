@@ -64,6 +64,7 @@ public class ReservationController {
 	@GetMapping("/allbooking/{username}")
 	public List<ReservationForm> getAllBookingByUsername(@PathVariable String username)
 	{
+		System.out.println("****im executing bro!!!!****");
 		return this.reservationService.getAllBookingByUsername(username);
 	}
 }

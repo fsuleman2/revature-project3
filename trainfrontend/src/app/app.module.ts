@@ -43,6 +43,7 @@ import { TicketComponent } from './pages/customer/ticket/ticket.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { CancellationComponent } from './pages/customer/cancellation/cancellation.component';
 import { ViewBookingsComponent } from './pages/customer/view-bookings/view-bookings.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ViewBookingsComponent } from './pages/customer/view-bookings/view-booki
     PaymentComponent,
     TicketComponent,
     CancellationComponent,
-    ViewBookingsComponent
+    ViewBookingsComponent,
+    CustomerProfileComponent
 
 
 
