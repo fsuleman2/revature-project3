@@ -142,7 +142,11 @@ export class BookingformComponent implements OnInit {
       this.service.addBooking(this.booking).subscribe(
         (Response: any) => {
           this.rev = Response;
-          console.log(this.rev)
+          //localStorage.setItem("seatno",this.rev.seatNumber);
+          //localStorage.setItem("coachid",this.rev.coachId);
+          //localStorage.setItem("trainname",this.rev.td.tname);   //ticket data details
+          localStorage.setItem("ticketprice",this.rev.price);
+           console.log(this.rev)
           alert("data submitted");
           window.location.href = "/customer-dashboard/payment"
         },

@@ -9,29 +9,53 @@
         <article class="card fl-left">
           <section class="date">
             <time datetime="23th feb">
-              <span>{{item.passengerName}}</span><span>{{item.passengerAge}}</span>
+              <span>{{item.passengerName}}</span>
+              <span>{{item.passengerAge}}</span>
+              <br>
+              <span>{{item.passengerGender}}</span>
             </time>
         </section>
         <section class="card-cont">
-            <h1 style="color: red;">Revature Railways</h1>  
+            <h1 style="color: red;">Revature Railways</h1> 
+
             <div class="even-date">
-                <i class="fa fa-calendar"></i>
+                <i class="fa fa-calendar fa-fw mr-1"></i>
                 <time> 
                 <span>{{item.travelDate}}</span>
-                <span>08:55pm to 12:00 am</span> 
                </time> 
              </div> 
+             <br>
+             <div>
+               <!-- <h3>
+                 Train Name : {{this.trainname}}
+                 Coach Id   : {{this.coachid}}
+                 Seat no.   : {{this.seatno}}
+               </h3> -->
+             </div>
             <div class="even-info">
-              <i class="fa fa-map-marker"></i>
+              <i class="fa fa-map-marker fa-fw mr-1"></i>
               <h2>
-                From: {{item.source}} || To: {{item.destination}}
+                From: {{item.source}}
+                
+                <!-- {{this.ticketprice}} -->
                 <!-- nexen square for people australia, sydney -->
             </h2>
+            
             </div>
-            <a>Ticket</a>
+            <div class="even-info">
+              <i class="fa fa-map-marker fa-fw mr-1"></i>
+              <h2>
+                 To: {{item.destination}}
+            </h2>
+            
+            </div>
+            <h3>
+              Distance(KM) : {{item.totalDistance}}
+           </h3>
           </section>
           <section class="card-cont">
              <qr-code  [value]="qrInfo" [size]="size"></qr-code> <!--style="margin-left: 600px ;" -->
+             <img src="../../assets/img/Ticket.jpg" width="100" height="100">
           </section>
         </article>
       </div>  
