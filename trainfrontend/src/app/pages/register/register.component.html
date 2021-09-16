@@ -44,7 +44,7 @@
               <div class="form-floating mb-3">
                 <mat-form-field appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input [(ngModel)]="customer.password" matInput placeholder="Enter Your Password" required
+                  <input type="password" [(ngModel)]="customer.password" matInput placeholder="Enter Your Password" required
                     name="password" ngModel minlength="6" #password="ngModel">
                   <mat-error *ngIf="password.errors && password.errors.required">
                     Password is required
