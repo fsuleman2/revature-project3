@@ -40,7 +40,8 @@ export class AddRouteComponent implements OnInit {
     this._stop.addRoute(this.routes).subscribe(
       (data: any) => {
         Swal.fire('Success ', 'station Added. Add Another one', 'success').then((e) => {
-          this.route.navigate(['admin/trains'])
+         /*  this.route.navigate(['admin/trains'])*/ 
+         this.route.navigate(['/admin/view-routes/' + this.tId +'/' + this.tName])
         })
           ;
         this.routes.arrival = 0;

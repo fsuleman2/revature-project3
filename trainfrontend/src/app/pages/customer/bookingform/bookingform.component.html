@@ -13,103 +13,69 @@
   <br>
   <button type="submit" class="btn btn-primary">Check Availability</button>
 </form>
-<!-- <hr>
-<form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">  
-  <label>
-    Passenger Name:
-    <br><input type="text" [(ngModel)]="booking.pname" placeholder="Enter Passenger's name" required id="pname" name="pname">
-  </label>
-  <br>
-  <label>
-    Passenger Age:
-    <br><input type="number" [(ngModel)]="booking.page" placeholder="Enter Passenger's age" required id="page" name="page">
-  </label>
-  <br>
-  <mat-form-field appearance="fill" class="mt20 w100">
-    <mat-label>Select Gender</mat-label>
-    <mat-select name="category" [(ngModel)]="booking.pgender">
-      <mat-option value="male">Male</mat-option>
-      <mat-option value="Female">Female</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="fill" class="mt20 w100">
-    <mat-label>Physically Disabled</mat-label>
-    <mat-select name="category" [(ngModel)]="booking.pdisabled">
-      <mat-option value="true">Disabled</mat-option>
-      <mat-option value="false">Not Disabled</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
-  <h1>{{finalprice}}</h1>
-  <button type="submit"  class="btn btn-primary">Confirm Booking</button>
- <br>
- 
+<hr>
 
+<div class="form-control">
+  <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">
 
-</form> -->
+    <div class="row">
+      <mat-form-field class="col-xs-4" appearance="fill">
+        <mat-label>Passenger's Name</mat-label>
+        <input type="text" [(ngModel)]="booking.pname" placeholder="Enter Passenger's name" required id="pname"
+          name="pname" matInput />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="col-xs-4" appearance="fill">
+        <mat-label>Passenger's Age</mat-label>
+        <input type="number" [(ngModel)]="booking.page" placeholder="Enter Passenger's age" required id="page"
+          name="page" matInput />
+      </mat-form-field>
+    </div>
 
-
-<div>
-  <ng-template #elseblock>
-   <div *ngIf="!bool">
-    <!-- <h1 >Select The Seat Type</h1> -->
-  </div>
-  <div  *ngIf="bool">
-    <!-- <h1>Seat Not Available</h1> -->
-  </div>
-  <hr>
-  </ng-template>
-</div>
-
-<mat-stepper *ngIf="flag,else elseblock"  class="example-stepper"
-[orientation]="(stepperOrientation | async)!" [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form  [formGroup]="firstFormGroup" (ngSubmit)="confirmbooking()">
-      <ng-template matStepLabel>Enter Passenger Details</ng-template>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter Name</mat-label>
-        <input matInput type="text" [(ngModel)]="booking.pname" formControlName="firstCtrl" required id="pname" name="pname">
-        <!-- <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required> -->
-      </mat-form-field><br>
-      <mat-form-field appearance="outline">
+    <div class="row">
+      <mat-form-field class="col-xs-4" appearance="fill">
         <mat-label>Select Gender</mat-label>
-        <mat-select name="Gender" [(ngModel)]="booking.pgender">
+        <mat-select name="category" [(ngModel)]="booking.pgender">
           <mat-option value="male">Male</mat-option>
           <mat-option value="Female">Female</mat-option>
         </mat-select>
-        <!-- <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required> -->
       </mat-form-field>
-      <div>
-        <!-- <button type="submit" class="btn btn-primary">Check Availability</button> -->
-      
-          <button type="button" matStepperNext>Next</button>
-       
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Check Price">
-    <form [formGroup]="secondFormGroup">
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-                <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
-  <h1>{{finalprice}}</h1>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Pay</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
-  </mat-step>
-</mat-stepper>
+
+    <div class="row">
+      <mat-form-field class="col-xs-4" appearance="fill">
+        <mat-label>Physically Disabled</mat-label>
+        <mat-select name="category" [(ngModel)]="booking.pdisabled">
+          <mat-option value="true">Disabled</mat-option>
+          <mat-option value="false">Not Disabled</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button type="button" (click)="checkPrice()" class="btn btn-primary" style="margin-left: 15px; margin-right: 20px;">Calculate price</button>
+      </div>
+      <h1 class="form-control">{{finalprice}}</h1>
+    </div>
+
+    <div class="container text-center">
+      <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers"
+        type="submit">Checkout</button>
+    </div>
+  </form>
+</div>
+
+<div>
+  <ng-template #elseblock>
+    <div *ngIf="!bool">
+      <!-- <h1 >Select The Seat Type</h1> -->
+    </div>
+    <div *ngIf="bool">
+      <!-- <h1>Seat Not Available</h1> -->
+    </div>
+    <hr>
+  </ng-template>
+</div>
