@@ -42,6 +42,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { TicketComponent } from './pages/customer/ticket/ticket.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { CancellationComponent } from './pages/customer/cancellation/cancellation.component';
+import { ViewBookingsComponent } from './pages/customer/view-bookings/view-bookings.component';
+import { CustomerProfileComponent } from './pages/customer/customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { CancellationComponent } from './pages/customer/cancellation/cancellatio
     BookingformComponent,
     PaymentComponent,
     TicketComponent,
-    CancellationComponent
+    CancellationComponent,
+    ViewBookingsComponent,
+    CustomerProfileComponent
 
 
 

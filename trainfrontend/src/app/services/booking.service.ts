@@ -19,6 +19,33 @@ export class BookingService {
   public addBooking(booking:any){
     return this.https.post(`${baseUrl}/reserve/add`,booking);
   }
+//view all bookings made by customer
+  public viewBookings(){
+    return this.https.get(`${baseUrl}/reserve/allbooking/`+localStorage.getItem("userid"))
+  }
+//view cancellation details
+public viewCancel(){
+  return this.https.get(`${baseUrl}/reserve/allCancel/`+localStorage.getItem("userid"))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // public getCustomerIdByUsername(username:any){
   //   return this.https.get(`${baseUrl}/customer/`+ username);

@@ -24,6 +24,7 @@ public interface ReservationRepository extends JpaRepository<ReservationForm, In
 	@Query(value = "select * from reservation where booking_id=:id", nativeQuery = true)
 	public ReservationForm findByBookingID(@Param("id") int id);
 
-	@Query(value = "select * from reservation where customer_c_id=:id", nativeQuery = true)
+	@Query(value = "select * from reservation where customer_c_id=:id and status=false", nativeQuery = true)
 	public List<ReservationForm> getAllBookingById(@Param("id") long userid);
+
 }

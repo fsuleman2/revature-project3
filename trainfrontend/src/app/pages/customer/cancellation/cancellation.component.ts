@@ -17,12 +17,12 @@ reason:any;
   ngOnInit(): void {
   }
 cancel(){
-if(this.bookingId!=null){
-  this._snack.open("Invalid Booking Id",'',{
-    duration:3000
-  })
-  return;
-}
+// if(this.bookingId!=0){
+//   this._snack.open("Invalid Booking Id",'',{
+//     duration:3000
+//   })
+//   return;
+// }
   if(this.reason.trim()=='' || this.reason==null){
     this._snack.open("Enter Reson Please",'',{
       duration:3000
@@ -40,9 +40,10 @@ this.cancelService.cancelTicket(this.bookingId,this.reason).subscribe(
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Logout'
+        confirmButtonText: 'Yes Cancel'
       }).then((result) => {
         if (result.isConfirmed) {
+          Swal.fire('Successfully Cancelled !!','Payment will be reflected back in 2 business Days','success')
          this._route.navigate(['/customer-dashboard'])
           // this.route.navigate(['/login'])
 

@@ -1,5 +1,8 @@
 package com.train.controller;
 
+import java.sql.Date;
+import java.util.Calendar;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,11 @@ public class ReservationController {
 	
 	@PostMapping("/add")
 	public ReservationForm addReservationForm(@RequestBody ReservationForm reservationForm) {
+		
+//		System.out.println(date+" im from 33 line");
+		reservationForm.setBookingDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+		System.out.println(reservationForm.getBookingDate()+"********Im from booking date");
+
 		System.out.println("----------------------------------------");
 		System.out.println(reservationForm);
 		System.out.println("********************************************");
@@ -64,6 +72,7 @@ public class ReservationController {
 	@GetMapping("/allbooking/{username}")
 	public List<ReservationForm> getAllBookingByUsername(@PathVariable String username)
 	{
+		System.out.println("****im executing bro!!!!****");
 		return this.reservationService.getAllBookingByUsername(username);
 	}
 }
