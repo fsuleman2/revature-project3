@@ -39,6 +39,17 @@ public class ReservationForm {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Customer customer;
 	
+	
+	public boolean ispDisabled() {
+		return pDisabled;
+	}
+	public void setpDisabled(boolean pDisabled) {
+		this.pDisabled = pDisabled;
+	}
+	
+	
+
+	
 
 //	public ReservationForm() {
 //		// TODO Auto-generated constructor stub

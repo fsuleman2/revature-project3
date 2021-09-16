@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.train.model.Cancellation;
 import com.train.model.Customer;
 import com.train.model.ReservationForm;
 import com.train.model.TrainDetails;
 
 import com.train.repository.AdminDao;
+import com.train.repository.CancelDao;
 import com.train.repository.CustomerRepository;
 import com.train.repository.ReservationRepository;
 import com.train.service.ReservationService;
@@ -22,18 +24,42 @@ public class ReservationServiceImpl implements ReservationService{
 	private AdminDao admindao;
 	@Autowired
 	private CustomerRepository cd;
+	@Autowired
+	private CancelDao canceldao;
 	
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
+<<<<<<< HEAD
 		reservationForm.setStatus(true);
+=======
+//		reservationForm.setStatus(false);
+>>>>>>> demo
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
 			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
 			reservationForm.getCustomer().setcId(customer.getcId());
 		}
 		TrainDetails td=this.admindao.getAvailableSeat(reservationForm.getTrainDetails().getTid());
-		
+		List<ReservationForm> rv=this.reservationRepository.getCancelTicket(reservationForm.getTrainDetails().getTid(), reservationForm.getCoachType());
+		if(!rv.isEmpty())
+		{
+			rv.get(0).setSource(reservationForm.getSource());
+			rv.get(0).setDestination(reservationForm.getDestination());
+			rv.get(0).setTravelDate(reservationForm.getTravelDate());
+			rv.get(0).setPName(reservationForm.getPName());
+			rv.get(0).setPAge(reservationForm.getPAge());
+			rv.get(0).setStatus(false);
+			rv.get(0).setPGender(reservationForm.getPGender());
+			rv.get(0).setpDisabled(reservationForm.ispDisabled());
+			rv.get(0).setPrice(reservationForm.getPrice());
+			rv.get(0).setTotalDistance(reservationForm.getTotalDistance());
+			rv.get(0).setBookingDate(reservationForm.getBookingDate());
+			rv.get(0).getCustomer().setcId(reservationForm.getCustomer().getcId());
+			reservationRepository.save(rv.get(0));
+			return rv.get(0);
+		}
+		else {
 		  if(reservationForm.getCoachType().equals("availAcSleeperSeat"))
 		    {   int Total_seat=td.getTotalAcSleeperSeat();
 		        String[] coach= {"1A","2A","3A","4A","5A","6A","7A","8A","9A"};
@@ -43,8 +69,12 @@ public class ReservationServiceImpl implements ReservationService{
 		        reservationForm.setCoachId(Coach_Id);
 		        reservationForm.setSeatNumber(seat_number_allocated);
 		        int avail=td.getAvailAcSleeperSeat();
+<<<<<<< HEAD
 		        
 		        td.setAvailAcSleeperSeat(avail-1);
+=======
+		        td.setAvailAcSleeperSeat(avail-1); //updating available seats
+>>>>>>> demo
 		        admindao.save(td);
 		        return this.reservationRepository.save(reservationForm);
 		    	
@@ -96,6 +126,7 @@ public class ReservationServiceImpl implements ReservationService{
 		        return this.reservationRepository.save(reservationForm);
 		    	
 		    }
+		}
 		    
 //		return this.reservationRepository.save(reservationForm);
 	}
@@ -123,6 +154,12 @@ public class ReservationServiceImpl implements ReservationService{
 	    TrainDetails td=this.admindao.getAvailableSeat(id);
 	    System.out.println(td);
 	    System.out.println("-----------------------------------------------------------------");
+	    
+	    List<ReservationForm> rv=this.reservationRepository.getCancelTicket(id, seat);
+		if(!rv.isEmpty())
+			return true;
+		else {
+	    
 	    if(seat.equals("availNonAcSittingSeat"))
 	    {
 	    	System.out.println(1);
@@ -153,8 +190,72 @@ public class ReservationServiceImpl implements ReservationService{
 	    		return true;
 	    	else return false;
 	    }
+		}
 	    
 	  }
 
+	@Override
+	public boolean cancelTicket(int id,String reason) {
 
+		ReservationForm rv=reservationRepository.findByBookingID(id);
+		System.out.println(rv);
+		if(!rv.isStatus())
+		{
+		rv.setStatus(true);
+		Cancellation cancellation=new Cancellation();
+		cancellation.setReason(reason);
+		cancellation.setSource(rv.getSource());
+		cancellation.setDestination(rv.getDestination());
+		cancellation.setTravelDate(rv.getTravelDate());
+		cancellation.setCoachType(rv.getCoachType());
+		cancellation.setPName(rv.getPName());
+		cancellation.setPAge(rv.getPAge());
+		cancellation.setStatus(false);
+		cancellation.setPGender(rv.getPGender());
+		cancellation.setPDisabled(rv.ispDisabled());
+		cancellation.setPrice(rv.getPrice());
+		cancellation.setTotalDistance(rv.getTotalDistance());
+		cancellation.setSeatNumber(rv.getSeatNumber());
+		cancellation.setCoachId(rv.getCoachId());
+		cancellation.setBookingDate(rv.getBookingDate());
+		int tid=rv.getTrainDetails().getTid();
+		System.out.println("----------------------"+tid);
+		cancellation.setTrainDetails(rv.getTrainDetails());
+		cancellation.setCustomer(rv.getCustomer());
+		System.out.println("**************************************");
+		System.out.println(cancellation);
+		System.out.println("=======================================");
+		reservationRepository.save(rv);
+		canceldao.save(cancellation);
+		return true;
+	}
+		else
+			return false;
+
+	}
+
+	@Override
+	public List<Cancellation> getAllCancelByUsername(String username) {
+		long userid=0;
+	
+		List<Customer> cust=cd.findAll();
+		for (Customer customer : cust) {
+			if(customer.getUsername().equals(username))
+			userid=customer.getcId();
+	}
+		return this.canceldao.getAllCancelById(userid);
+}
+
+	@Override
+	public List<ReservationForm> getAllBookingByUsername(String username) {
+		long userid=0;
+		
+		List<Customer> cust=cd.findAll();
+		for (Customer customer : cust) {
+			if(customer.getUsername().equals(username))
+			userid=customer.getcId();
+	}
+		return this.reservationRepository.getAllBookingById(userid);
+	}
+	
 }
