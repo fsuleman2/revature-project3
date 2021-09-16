@@ -26,7 +26,7 @@ public class ReservationForm {
 	private String coachType;
 	private String pName;
 	private String pAge;
-	private boolean status=false;
+	private boolean status;
 	private String pGender;
 	private boolean pDisabled;
 	private float price;

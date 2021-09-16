@@ -62,7 +62,8 @@ export class PaymentComponent implements OnInit {
               //payment successfull
               Swal.fire('Payment Success', '', 'success').then((e) => {
                 localStorage.setItem("pay", "true");
-                window.location.href = "customer-dashboard";
+                window.location.href = "customer-dashboard/ticket";
+                // window.location.href="/qrcode";
                 localStorage.removeItem("price");
               })
               updatePaymentOnServer(data.payment_id, data.order_id, data.status);
