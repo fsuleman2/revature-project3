@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "cancellation")
+@Table
 public class Cancellation {
 	
 	@Id
@@ -36,9 +36,11 @@ public class Cancellation {
 	private int seatNumber;
 	private String coachId;
 	private Date bookingDate;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private TrainDetails trainDetails;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Customer customer;
+	
 	
 }

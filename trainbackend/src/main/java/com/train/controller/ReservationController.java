@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.train.model.Cancellation;
 import com.train.model.Customer;
 import com.train.model.ReservationForm;
 import com.train.service.ReservationService;
@@ -48,5 +49,21 @@ public class ReservationController {
 	  public boolean checkSeatAvail(@PathVariable String seat,@PathVariable int id) {
 	    return this.reservationService.checkSeatAvail(seat,id);
 	  }
-
+	
+	@GetMapping("/cancel/{id}/{reason}")
+	public boolean cancalTicket(@PathVariable int id,@PathVariable String reason) {
+		return this.reservationService.cancelTicket(id,reason);
+	}
+	
+	@GetMapping("/allCancel/{username}")
+	public List<Cancellation> getAllCancelByUsername(@PathVariable String username)
+	{
+		return this.reservationService.getAllCancelByUsername(username);
+	}
+	
+	@GetMapping("/allbooking/{username}")
+	public List<ReservationForm> getAllBookingByUsername(@PathVariable String username)
+	{
+		return this.reservationService.getAllBookingByUsername(username);
+	}
 }
