@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { BookingService } from 'src/app/services/booking.service';
 import { reservation } from '../../admin/model/reservation';
-
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation} from '@angular/material/stepper';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -10,10 +15,24 @@ import { reservation } from '../../admin/model/reservation';
   styleUrls: ['./bookingform.component.css']
 })
 export class BookingformComponent implements OnInit {
-
-  constructor( private service:BookingService) { }
+  isLinear = true;
+  firstFormGroup!: FormGroup;
+  secondFormGroup!: FormGroup;
+  stepperOrientation!: Observable<StepperOrientation>;
+  constructor( private service:BookingService,private _formBuilder: FormBuilder,breakpointObserver: BreakpointObserver) {
+    this.stepperOrientation = breakpointObserver.observe('(min-width: 800px)')
+    .pipe(map(({matches}) => matches ? 'horizontal' : 'vertical'));
+}
+   
 
   ngOnInit(): void {
+
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    })
   }
   rev:reservation=new reservation
   public booking = {
@@ -47,13 +66,14 @@ export class BookingformComponent implements OnInit {
 
     checkavailabilty(){
 
-      console.log("button clicked ok")
+      // alert("button clicked ok")
         this.service.checkAvailableSeat(this.booking.coachType).subscribe(
           (Response:any)=>{
             console.log(Response)
             this.flag=Response;
-            if(this.flag==false)
+            if(this.flag==false){Swal.fire('Sorry no seats','','error')}
             this.bool=true
+            
           },
           (err:any)=>{
 
