@@ -38,10 +38,7 @@ import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-t
 import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 import { PaymentComponent } from './pages/customer/payment/payment.component';
-import {MatStepperModule} from '@angular/material/stepper';
-
-
-
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -85,7 +82,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatCardModule,
     MatIconModule,
     MatSelectModule,
-    MatStepperModule,ReactiveFormsModule
+    MatStepperModule, ReactiveFormsModule
 
   ],
   providers: [authInterceptorProviders],

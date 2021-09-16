@@ -17,6 +17,7 @@
 
 <div class="form-control">
   <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">
+
     <div class="row">
       <mat-form-field class="col-xs-4" appearance="fill">
         <mat-label>Passenger's Name</mat-label>
@@ -49,21 +50,18 @@
           <mat-option value="true">Disabled</mat-option>
           <mat-option value="false">Not Disabled</mat-option>
         </mat-select>
+
       </mat-form-field>
     </div>
 
     <button type="button" (click)="checkPrice()" class="btn btn-primary">Calculate price</button>
     <h1>{{finalprice}}</h1>
 
-
     <!-- <button type="button" class="btn btn-primary" matStepperNext>Next</button> -->
     <!-- <button color="primary" mat-raised-button matStepperNext type="button">Next</button> -->
-
-
-
+    <!-- <app-payment></app-payment>  -->
     <div class="container text-center">
-      <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers" type="submit">Confirm
-        Booking</button>
+      <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers" type="submit">Checkout</button>
     </div>
   </form>
 </div>
@@ -114,3 +112,5 @@
     <hr>
   </ng-template>
 </div>
+
+
