@@ -30,6 +30,8 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
+		ReservationForm tname=reservationRepository.getById(reservationForm.getTrainDetails().getTid());
+		reservationForm.getTrainDetails().setTname(tname.getTrainDetails().getTname());
 
 		reservationForm.setStatus(false);
 
