@@ -7,6 +7,7 @@ import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { bookingDetails } from '../../admin/model/bookingDetails';
 
 
 
@@ -35,7 +36,7 @@ export class BookingformComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     })
   }
-  rev: reservation = new reservation
+  rev: bookingDetails=new bookingDetails;
   public booking = {
     // bookingId:'',
     source: localStorage.getItem("start"),
@@ -51,7 +52,7 @@ export class BookingformComponent implements OnInit {
     totalDistance: localStorage.getItem("dist"),
     seatNumber: '',
     coachId: '',
-    bookingDate: '2021-09-16',
+    // bookingDate: '2021-09-16',
     trainDetails: {
       tid: localStorage.getItem("tid")
     },
@@ -108,7 +109,7 @@ export class BookingformComponent implements OnInit {
         this.finalprice = this.finalprice
     }
     else if (this.booking.coachType == "availNonAcSleeperSeat") {
-      this.finalprice = this.finalprice + (this.finalprice * 35) / 100;
+      this.finalprice = this.finalprice + (this.finalprice * 25) / 100;
       if (this.booking.page <= 5)
         this.finalprice = 0;
       else if (this.booking.page >= 60)
@@ -125,6 +126,9 @@ export class BookingformComponent implements OnInit {
       }
       else
         this.finalprice = this.finalprice
+    }
+    if(this.booking.pdisabled=='true'){
+      this.finalprice = this.finalprice - (this.finalprice * 30) / 100;
     }
     localStorage.setItem("price", this.finalprice.toString())
   }
@@ -145,7 +149,7 @@ export class BookingformComponent implements OnInit {
           console.log(this.rev)
           localStorage.setItem("seatno", this.rev.seatNumber);
           localStorage.setItem("coachid", this.rev.coachId);
-          // localStorage.setItem("trainname", this.rev.td.tname);
+         localStorage.setItem("tname", this.rev.trainDetails.tname);
           // localStorage.setItem("gaddi", this.rev.td.tname);
           //ticket data details
           localStorage.setItem("ticketprice", this.rev.price);

@@ -43,6 +43,7 @@ this.cancelService.cancelTicket(this.bookingId,this.reason).subscribe(
         confirmButtonText: 'Yes Cancel'
       }).then((result) => {
         if (result.isConfirmed) {
+          Swal.fire('Successfully Cancelled !!','Payment will be reflected back in 2 business Days','success')
          this._route.navigate(['/customer-dashboard'])
           // this.route.navigate(['/login'])
 
