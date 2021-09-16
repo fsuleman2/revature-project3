@@ -13,8 +13,8 @@ export class TicketComponent implements OnInit {
   }
 
   item = {
-    id:localStorage.getItem("tid"),
-    name:localStorage.getItem("userid"),
+    id: localStorage.getItem("tid"),
+    name: localStorage.getItem("userid"),
     source: localStorage.getItem("start"),
     destination: localStorage.getItem("end"),
     travelDate: localStorage.getItem("date"),
@@ -23,14 +23,14 @@ export class TicketComponent implements OnInit {
     passengerAge: localStorage.getItem("passengerAge"),
     passengerGender: localStorage.getItem("passengerGender"),
     disabled: localStorage.getItem("disabled"),
-    trainname: localStorage.getItem("trainname"),
+    trainname: 'RAJDHANI EXP',
     coachid: localStorage.getItem("coachid"),
-    seatno:localStorage.getItem("seatno"),
+    seatno: localStorage.getItem("seatno"),
     ticketprice: localStorage.getItem("ticketprice")
-   // price: localStorage.getItem("price")
+    // price: localStorage.getItem("price")
   }
 
-  size=250;
+  size = 250;
   qrInfo = JSON.stringify(this.item);
-  
+
 }
