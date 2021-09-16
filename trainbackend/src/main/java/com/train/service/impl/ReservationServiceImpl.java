@@ -33,10 +33,7 @@ public class ReservationServiceImpl implements ReservationService{
 
 
 
-		reservationForm.setStatus(true);
-
-//		reservationForm.setStatus(false);
-
+		reservationForm.setStatus(false);
 
 		//reservationForm.setStatus(true);
 

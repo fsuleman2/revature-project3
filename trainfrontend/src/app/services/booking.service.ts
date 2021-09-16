@@ -20,13 +20,13 @@ export class BookingService {
     return this.https.post(`${baseUrl}/reserve/add`,booking);
   }
 
-  public getCustomerIdByUsername(username:any){
-    return this.https.get(`${baseUrl}/customer/`+ username);
-  }
+  // public getCustomerIdByUsername(username:any){
+  //   return this.https.get(`${baseUrl}/customer/`+ username);
+  // }
 
-  public getReservationDetails(tid:any, userid:any,status:any){
-    return this.https.get(`${baseUrl}/reserve/details/`+ tid +`/` + userid + `/`+status);
-  }   
+  // public getReservationDetails(tid:any, userid:any,status:any){
+  //   return this.https.get(`${baseUrl}/reserve/details/`+ tid +`/` + userid + `/`+status);
+  // }   
 
 }
 
