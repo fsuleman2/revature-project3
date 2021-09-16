@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.train.model.Customer;
 import com.train.model.ReservationForm;
 import com.train.model.TrainDetails;
+
 import com.train.repository.AdminDao;
 import com.train.repository.CustomerRepository;
 import com.train.repository.ReservationRepository;
@@ -21,6 +22,7 @@ public class ReservationServiceImpl implements ReservationService{
 	private AdminDao admindao;
 	@Autowired
 	private CustomerRepository cd;
+	
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
@@ -113,7 +115,7 @@ public class ReservationServiceImpl implements ReservationService{
 		return this.reservationRepository.getReservationbyCustId(custid);
 	}
 	
-	@Override
+	  @Override
 	  public boolean checkSeatAvail(String seat,int id) {
 		System.out.println(seat);
 	    TrainDetails td=this.admindao.getAvailableSeat(id);
@@ -151,5 +153,6 @@ public class ReservationServiceImpl implements ReservationService{
 	    }
 	    
 	  }
+
 
 }
