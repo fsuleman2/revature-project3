@@ -26,7 +26,7 @@ export class TicketComponent implements OnInit {
    // price: localStorage.getItem("price")
   }
 
-  size=350;
+  size=250;
   qrInfo = JSON.stringify(this.item);
   
 }
