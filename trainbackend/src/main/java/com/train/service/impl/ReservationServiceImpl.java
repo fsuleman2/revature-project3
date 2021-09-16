@@ -30,11 +30,13 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
-		ReservationForm tname = reservationRepository.getById(reservationForm.getTrainDetails().getTid());
-		reservationForm.getTrainDetails().setTname(tname.getTrainDetails().getTname());
+		System.out.println("11111111111111111111111111111111111111111111111111111111111111");
+		System.out.println(reservationForm.getTrainDetails().getTid());
+		
+		reservationForm.getTrainDetails().setTname(admindao.getMyTrainId(reservationForm.getTrainDetails().getTid()));
 
 		reservationForm.setStatus(false);
-
+		System.out.println("2");
 		// reservationForm.setStatus(true);
 
 		List<Customer> cust = cd.findAll();
@@ -42,6 +44,7 @@ public class ReservationServiceImpl implements ReservationService {
 			if (customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
 				reservationForm.getCustomer().setcId(customer.getcId());
 		}
+		System.out.println("3");
 		TrainDetails td = this.admindao.getAvailableSeat(reservationForm.getTrainDetails().getTid());
 		List<ReservationForm> rv = this.reservationRepository
 				.getCancelTicket(reservationForm.getTrainDetails().getTid(), reservationForm.getCoachType());
@@ -61,7 +64,9 @@ public class ReservationServiceImpl implements ReservationService {
 			reservationRepository.save(rv.get(0));
 			return rv.get(0);
 		} else {
+			System.out.println("else part");
 			if (reservationForm.getCoachType().equals("availAcSleeperSeat")) {
+				System.out.println("1.1");
 				int Total_seat = td.getTotalAcSleeperSeat();
 				String[] coach = { "1A", "2A", "3A", "4A", "5A", "6A", "7A", "8A", "9A" };
 				int Current_total_seat_booked = this.reservationRepository
@@ -73,8 +78,9 @@ public class ReservationServiceImpl implements ReservationService {
 				int avail = td.getAvailAcSleeperSeat();
 
 				td.setAvailAcSleeperSeat(avail - 1); // updating available seats
-
+				System.out.println("1.2");
 				admindao.save(td);
+				System.out.println("1.3");
 				return this.reservationRepository.save(reservationForm);
 
 			} else if (reservationForm.getCoachType().equals("availAcSittingSeat")) {
@@ -192,7 +198,7 @@ public class ReservationServiceImpl implements ReservationService {
 		ReservationForm rv = reservationRepository.findByBookingID(id);
 		System.out.println(rv);
 		if (!rv.isStatus()) {
-			rv.setStatus(true);
+			
 			Cancellation cancellation = new Cancellation();
 			cancellation.setReason(reason);
 			cancellation.setSource(rv.getSource());
@@ -216,8 +222,10 @@ public class ReservationServiceImpl implements ReservationService {
 			System.out.println("**************************************");
 			System.out.println(cancellation);
 			System.out.println("=======================================");
+			rv.setStatus(true);
 			reservationRepository.save(rv);
 			canceldao.save(cancellation);
+			
 			return true;
 		} else
 			return false;

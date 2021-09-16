@@ -23,7 +23,10 @@ export class TicketComponent implements OnInit {
     passengerAge: localStorage.getItem("passengerAge"),
     passengerGender: localStorage.getItem("passengerGender"),
     disabled: localStorage.getItem("disabled"),
-    trainname: localStorage.getItem("trainname"),
+
+
+    trainname: localStorage.getItem("tname"),
+
     coachid: localStorage.getItem("coachid"),
     seatno: localStorage.getItem("seatno"),
     ticketprice: localStorage.getItem("ticketprice")
