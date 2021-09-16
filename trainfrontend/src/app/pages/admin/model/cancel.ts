@@ -2,7 +2,8 @@ import { customer } from "./customer";
 import { traindetails } from "./traindetails";
 
 export class reservation{
-    bookingid:any;
+    cancelid:any;
+    reason:any;
 	source:any;
 	destination:any;
 	travelDate:any;
