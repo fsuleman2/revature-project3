@@ -3,3 +3,10 @@
 w100 {
     width: 100%;
   }
+#main{
+box-shadow: 10px 10px rgba(14, 13, 13, 0);
+border-color: black;
+box-sizing: border-box;
+border: 15px;
+background-color: rgb(238, 234, 227);
+}
