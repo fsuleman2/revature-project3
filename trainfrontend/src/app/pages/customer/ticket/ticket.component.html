@@ -21,13 +21,6 @@
             </time>
           </div>
           <br>
-          <div>
-            <!-- <h3>
-                 Train Name : {{this.trainname}}
-                 Coach Id   : {{this.coachid}}
-                 Seat no.   : {{this.seatno}}
-               </h3> -->
-          </div>
           <div class="even-info">
             <i class="fa fa-map-marker fa-fw mr-1"></i>
             <h2>
@@ -48,6 +41,15 @@
           <h3>
             Distance(KM) : {{item.totalDistance}}
           </h3>
+          <h5>
+            Train Name:: {{this.item.trainname}}
+          </h5>
+          <h5>
+            Coach ID::{{this.item.coachid}}
+          </h5>
+          <h5>
+            SEAT NO::{{this.item.seatno}}
+          </h5>
         </section>
         <section class="card-cont">
           <qr-code [value]="qrInfo" [size]="size"></qr-code>

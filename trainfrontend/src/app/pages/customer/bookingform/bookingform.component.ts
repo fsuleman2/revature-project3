@@ -47,7 +47,7 @@ export class BookingformComponent implements OnInit {
     pgender: '',
     pdisabled: '',
     price: 0,
-    status:false,
+    status: false,
     totalDistance: localStorage.getItem("dist"),
     seatNumber: '',
     coachId: '',
@@ -135,18 +135,20 @@ export class BookingformComponent implements OnInit {
     if (this.chk == true) {
       console.log(this.booking);
       this.booking.price = this.finalprice;
-      localStorage.setItem("passengerName",this.booking.pname);
-      localStorage.setItem("passengerAge",this.booking.page.toString());
-      localStorage.setItem("passengerGender",this.booking.pgender);
-      localStorage.setItem("disabled",this.booking.pdisabled);
+      localStorage.setItem("passengerName", this.booking.pname);
+      localStorage.setItem("passengerAge", this.booking.page.toString());
+      localStorage.setItem("passengerGender", this.booking.pgender);
+      localStorage.setItem("disabled", this.booking.pdisabled);
       this.service.addBooking(this.booking).subscribe(
         (Response: any) => {
           this.rev = Response;
-          //localStorage.setItem("seatno",this.rev.seatNumber);
-          //localStorage.setItem("coachid",this.rev.coachId);
-          //localStorage.setItem("trainname",this.rev.td.tname);   //ticket data details
-          localStorage.setItem("ticketprice",this.rev.price);
-           console.log(this.rev)
+          console.log(this.rev)
+          localStorage.setItem("seatno", this.rev.seatNumber);
+          localStorage.setItem("coachid", this.rev.coachId);
+          // localStorage.setItem("trainname", this.rev.td.tname);
+          // localStorage.setItem("gaddi", this.rev.td.tname);
+          //ticket data details
+          localStorage.setItem("ticketprice", this.rev.price);
           alert("data submitted");
           window.location.href = "/customer-dashboard/payment"
         },
