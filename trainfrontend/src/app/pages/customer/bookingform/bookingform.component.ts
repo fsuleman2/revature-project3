@@ -47,6 +47,7 @@ export class BookingformComponent implements OnInit {
     pgender: '',
     pdisabled: '',
     price: 0,
+    status:false,
     totalDistance: localStorage.getItem("dist"),
     seatNumber: '',
     coachId: '',
@@ -134,6 +135,10 @@ export class BookingformComponent implements OnInit {
     if (this.chk == true) {
       console.log(this.booking);
       this.booking.price = this.finalprice;
+      localStorage.setItem("passengerName",this.booking.pname);
+      localStorage.setItem("passengerAge",this.booking.page.toString());
+      localStorage.setItem("passengerGender",this.booking.pgender);
+      localStorage.setItem("disabled",this.booking.pdisabled);
       this.service.addBooking(this.booking).subscribe(
         (Response: any) => {
           this.rev = Response;

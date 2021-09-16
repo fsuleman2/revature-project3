@@ -26,6 +26,7 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Override
 	public ReservationForm addReservationForm(ReservationForm reservationForm) {
+		reservationForm.setStatus(true);
 		List<Customer> cust=cd.findAll();
 		for (Customer customer : cust) {
 			if(customer.getUsername().equals(reservationForm.getCustomer().getUsername()))
@@ -42,6 +43,7 @@ public class ReservationServiceImpl implements ReservationService{
 		        reservationForm.setCoachId(Coach_Id);
 		        reservationForm.setSeatNumber(seat_number_allocated);
 		        int avail=td.getAvailAcSleeperSeat();
+		        
 		        td.setAvailAcSleeperSeat(avail-1);
 		        admindao.save(td);
 		        return this.reservationRepository.save(reservationForm);

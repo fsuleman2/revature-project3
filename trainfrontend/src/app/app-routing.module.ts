@@ -21,6 +21,7 @@ import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-t
 import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 import { PaymentComponent } from './pages/customer/payment/payment.component';
+import { TicketComponent } from './pages/customer/ticket/ticket.component';
 
 
 
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path:'payment',
         component:PaymentComponent
+      },
+      {
+        path:'ticket',
+        component: TicketComponent
       }
     ]
   },
