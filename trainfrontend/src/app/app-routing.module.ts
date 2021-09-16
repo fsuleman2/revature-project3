@@ -22,6 +22,7 @@ import { AddRouteComponent } from './pages/admin/add-route/add-route.component';
 import { BookingformComponent } from './pages/customer/bookingform/bookingform.component';
 import { PaymentComponent } from './pages/customer/payment/payment.component';
 import { TicketComponent } from './pages/customer/ticket/ticket.component';
+import { CancellationComponent } from './pages/customer/cancellation/cancellation.component';
 
 
 
@@ -106,6 +107,10 @@ const routes: Routes = [
       {
         path:'ticket',
         component: TicketComponent
+      },
+      {
+        path:'cancellation',
+        component:CancellationComponent
       }
     ]
   },
