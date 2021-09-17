@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-welcome-page',
@@ -11,5 +12,7 @@ export class WelcomePageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+formSubmit(){
+  Swal.fire('Response Recorded Successfully','Our Team will Contact you soon','success')
+}
 }

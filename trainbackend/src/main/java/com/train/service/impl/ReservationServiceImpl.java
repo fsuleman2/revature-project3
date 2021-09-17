@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.train.exception.CustomerFoundException;
 import com.train.model.Cancellation;
 import com.train.model.Customer;
 import com.train.model.ReservationForm;
@@ -255,5 +256,62 @@ public class ReservationServiceImpl implements ReservationService {
 		}
 		return this.reservationRepository.getAllBookingById(userid);
 	}
+	@Override
+	public boolean cancelTicketbyusername(int id, String reason, String username) throws CustomerFoundException {
+		long userid=0;
+		List<Customer> cust = cd.findAll();
+		for (Customer customer : cust) {
+			if (customer.getUsername().equals(username))
+			{
+				userid=(customer.getcId());
+				System.out.println(userid);
+				}	
+		}
+		
+		ReservationForm rv = reservationRepository.findByBookingID(id);
+		System.out.println(rv.getCustomer().getcId());
+		
+		if(rv.getCustomer().getcId()!=userid) {
+			System.out.println("1603032036030");
+			
+			throw new CustomerFoundException("invalid cust id");
+		}else {
+			System.out.println(rv.getCustomer().getcId());
+			System.out.println("-------->"+userid);
+		if (!rv.isStatus()) {
+			
+			Cancellation cancellation = new Cancellation();
+			cancellation.setReason(reason);
+			cancellation.setSource(rv.getSource());
+			cancellation.setDestination(rv.getDestination());
+			cancellation.setTravelDate(rv.getTravelDate());
+			cancellation.setCoachType(rv.getCoachType());
+			cancellation.setPName(rv.getPName());
+			cancellation.setPAge(rv.getPAge());
+			cancellation.setStatus(false);
+			cancellation.setPGender(rv.getPGender());
+			cancellation.setPDisabled(rv.ispDisabled());
+			cancellation.setPrice(rv.getPrice());
+			cancellation.setTotalDistance(rv.getTotalDistance());
+			cancellation.setSeatNumber(rv.getSeatNumber());
+			cancellation.setCoachId(rv.getCoachId());
+			cancellation.setBookingDate(rv.getBookingDate());
+			int tid = rv.getTrainDetails().getTid();
+			System.out.println("----------------------" + tid);
+			cancellation.setTrainDetails(rv.getTrainDetails());
+			cancellation.setCustomer(rv.getCustomer());
+			System.out.println("**************************************");
+			System.out.println(cancellation);
+			System.out.println("=======================================");
+			rv.setStatus(true);
+			reservationRepository.save(rv);
+			canceldao.save(cancellation);
+			
+			return true;
+		} else
+			throw new CustomerFoundException("invalid booking id");
+		}
+	}
+
 
 }

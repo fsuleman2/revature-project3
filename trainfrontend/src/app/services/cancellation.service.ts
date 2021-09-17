@@ -10,7 +10,8 @@ export class CancellationService {
 
   constructor(private https:HttpClient) { }
   public cancelTicket(bookingId:any,reason:any){
-    return this.https.get(`${baseUrl}/reserve/cancel/`+bookingId+`/`+reason);
+    return this.https.get(`${baseUrl}/reserve/canceled/`+bookingId+`/`+reason+`/`+localStorage.getItem("userid"));
+
   }
 
 }

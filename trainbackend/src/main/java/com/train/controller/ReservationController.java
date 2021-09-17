@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.train.exception.CustomerFoundException;
 import com.train.model.Cancellation;
 import com.train.model.Customer;
 import com.train.model.ReservationForm;
@@ -75,4 +76,10 @@ public class ReservationController {
 		System.out.println("****im executing bro!!!!****");
 		return this.reservationService.getAllBookingByUsername(username);
 	}
+//	
+	@GetMapping("/canceled/{id}/{reason}/{username}")
+	public boolean cancalTicket(@PathVariable int id,@PathVariable String reason,@PathVariable String username) throws CustomerFoundException {
+		return this.reservationService.cancelTicketbyusername(id,reason,username);
+	}
+
 }

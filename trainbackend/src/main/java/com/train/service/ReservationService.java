@@ -2,6 +2,7 @@ package com.train.service;
 
 import java.util.List;
 
+import com.train.exception.CustomerFoundException;
 import com.train.model.Cancellation;
 import com.train.model.ReservationForm;
 
@@ -23,6 +24,8 @@ public interface ReservationService {
 	public List<Cancellation> getAllCancelByUsername(String username);
 
 	public List<ReservationForm> getAllBookingByUsername(String username);
+
+	public boolean cancelTicketbyusername(int id, String reason, String username)throws CustomerFoundException;
 
 
 }
