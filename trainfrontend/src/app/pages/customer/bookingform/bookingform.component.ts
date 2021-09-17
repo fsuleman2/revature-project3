@@ -152,8 +152,6 @@ export class BookingformComponent implements OnInit {
           localStorage.setItem("seatno", this.rev.seatNumber);
           localStorage.setItem("coachid", this.rev.coachId);
          localStorage.setItem("tname", this.rev.trainDetails.tname);
-          // localStorage.setItem("gaddi", this.rev.td.tname);
-          //ticket data details
           localStorage.setItem("ticketprice", this.rev.price);
           alert("Booking Initiated");
           //window.location.href = "/customer-dashboard/payment"
