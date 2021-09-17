@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { bookingDetails } from '../../admin/model/bookingDetails';
+import { Router } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ export class BookingformComponent implements OnInit {
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
   stepperOrientation!: Observable<StepperOrientation>;
-  constructor(private service: BookingService, private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
+  constructor(private service: BookingService, private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver,
+    private route: Router) {
     this.stepperOrientation = breakpointObserver.observe('(min-width: 800px)')
       .pipe(map(({ matches }) => matches ? 'horizontal' : 'vertical'));
   }
@@ -153,17 +155,17 @@ export class BookingformComponent implements OnInit {
           // localStorage.setItem("gaddi", this.rev.td.tname);
           //ticket data details
           localStorage.setItem("ticketprice", this.rev.price);
-          alert("data submitted");
-          window.location.href = "/customer-dashboard/payment"
+          alert("Booking Initiated");
+          //window.location.href = "/customer-dashboard/payment"
+          this.route.navigate(['/customer-dashboard/payment']);
         },
         (err: any) => {
-          alert("failed to add booking")
+          alert("Failed to Book")
         }
       )
-
     }
     else
-      alert("calculate price first");
+      alert("Calculate Price First");
   }
 
 }

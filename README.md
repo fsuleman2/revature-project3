@@ -10,7 +10,7 @@
   <li>Database Name : Railway</li><br>
   <li>Username : root</li><br>
   <li>Password : root12345</li><br>
-  <li>Schema Name : train_schema</li><br>
+  <li>Schema Name : railway</li><br>
   <li>Local Host : railway.cgotxcdjntda.us-east-2.rds.amazonaws.com</li><br>
 <hr>
 

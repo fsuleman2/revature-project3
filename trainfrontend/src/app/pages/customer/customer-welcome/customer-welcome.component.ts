@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TrainService } from 'src/app/services/train.service';
 import { routedetails } from '../../admin/model/routedetails';
 
@@ -9,7 +10,8 @@ import { routedetails } from '../../admin/model/routedetails';
 })
 export class CustomerWelcomeComponent implements OnInit {
 
-  constructor(private service: TrainService) { }
+  constructor(private service: TrainService,
+    private route: Router) { }
   routedetails: routedetails[] = [];
 
   public search = {
@@ -45,8 +47,9 @@ export class CustomerWelcomeComponent implements OnInit {
   dataForBook(id: any, dist: any) {
     localStorage.setItem("tid", id);
     localStorage.setItem("dist", dist);
-    // routerLink="/booking" 
-    window.location.href="/customer-dashboard/booking"
+    // routerLink="/booking"
+    //window.location.href = "/customer-dashboard/booking"
+    this.route.navigate(['/customer-dashboard/booking']);
   }
 
 

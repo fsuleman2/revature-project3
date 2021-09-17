@@ -31,7 +31,7 @@ import { AddTrainComponent } from './pages/admin/add-train/add-train.component';
 import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
 import { CustomerWelcomeComponent } from './pages/customer/customer-welcome/customer-welcome.component';
 import { ViewTrainsComponent } from './pages/admin/view-trains/view-trains.component';
-
+import { CommonModule, APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ViewCategoryComponent } from './pages/admin/view-category/view-category.component';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewTrainRoutesComponent } from './pages/admin/view-train-routes/view-train-routes.component';
@@ -96,7 +96,8 @@ import { CustomerProfileComponent } from './pages/customer/customer-profile/cust
     QRCodeModule
 
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
