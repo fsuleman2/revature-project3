@@ -38,23 +38,29 @@
             </h2>
 
           </div>
-          <h3>
-            Distance(KM) : {{item.totalDistance}}
-          </h3>
-          <h5>
-            Train Name:: {{this.item.trainname}}
-          </h5>
-          <h5>
-            Coach ID::{{this.item.coachid}}
-          </h5>
-          <h5>
-            SEAT NO::{{this.item.seatno}}
-          </h5>
-        </section>
-        <section class="card-cont">
-          <qr-code [value]="qrInfo" [size]="size"></qr-code>
-          <!--style="margin-left: 600px ;" -->
+          <span>
+            <h3>Distance(KM) :: {{item.totalDistance}}</h3>
+            <h4>
+            Train Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :: &nbsp;{{this.item.trainname}}
+          </h4>
+          <h4>
+            Coach ID   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    ::&nbsp;{{this.item.coachid}}
+          </h4>
+          <h4>
+            SEAT NO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;{{this.item.seatno}}
+          </h4>
+        </span>
+      </section>
+      <section class="card-cont">
+        <qr-code [value]="qrInfo" [size]="size"></qr-code>
+        <br>
+        <br>
+        <br>
+        <!--style="margin-left: 600px ;" -->
           <img src="../../assets/img/Ticket.jpg" width="100" height="100">
+          <br>
+          <br>
+          <button mat-raised-button color="primary" onclick="window.print()" style="margin-left: 150px ;">Print</button>
         </section>
       </article>
     </div>

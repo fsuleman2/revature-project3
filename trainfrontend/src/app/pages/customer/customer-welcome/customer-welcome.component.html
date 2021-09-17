@@ -1,6 +1,6 @@
 <mat-card>
   <div class="container">
-    <h1  style="margin-left: 350px;">Welcome</h1>
+    <h1  style="margin-left: 350px;">Search Trains</h1>
     <div class="row">
       <div class="col-md-6 offset-md-2">
         <form (ngSubmit)="searchtrain()">
@@ -83,7 +83,7 @@
                 <td> {{route.gap}} </td>
                 <td>
                   <button (click)="dataForBook(route.td.tid,route.gap)" data-dismiss="modal"
-                  type="submit" class="btn btn-link">Book</button>
+                  type="submit" class="btn btn-primary">Book</button>
                 </td>
               </tr>
             </tbody>
