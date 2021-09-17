@@ -1,19 +1,25 @@
-<form (ngSubmit)="checkavailabilty()">
-  <mat-form-field appearance="fill" class="mt20 w100">
-    <mat-label>Select Seat Type</mat-label>
-    <mat-select name="category" [(ngModel)]="booking.coachType">
-      <mat-option value="availAcSittingSeat">AC Sitting</mat-option>
-      <mat-option value="availNonAcSittingSeat">Non-AC Sitting</mat-option>
-      <mat-option value="availNonAcSleeperSeat">Non-AC Sleeper Seat</mat-option>
-      <mat-option value="availAcSleeperSeat">AC Sleeper Seat</mat-option>
+<div class="container">
+  <form (ngSubmit)="checkavailabilty()">
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Select Seat Type</mat-label>
+      <mat-select name="category" [(ngModel)]="booking.coachType">
+        <mat-option value="availAcSittingSeat">AC Sitting</mat-option>
+        <mat-option value="availNonAcSittingSeat">Non-AC Sitting</mat-option>
+        <mat-option value="availNonAcSleeperSeat">Non-AC Sleeper Seat</mat-option>
+        <mat-option value="availAcSleeperSeat">AC Sleeper Seat</mat-option>
 
-    </mat-select>
-  </mat-form-field>
+      </mat-select>
+    </mat-form-field>
 
-  <br>
-  <button type="submit" class="btn btn-primary">Check Availability</button>
-</form>
-<hr>
+    <br>
+    <div class="border border-light p-3 mb-4">
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Check Availability</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- <hr> -->
 
 <div class="form-control">
   <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">
@@ -56,7 +62,8 @@
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <button type="button" (click)="checkPrice()" class="btn btn-primary" style="margin-left: 15px; margin-right: 20px;">Calculate price</button>
+        <button type="button" (click)="checkPrice()" class="btn btn-primary"
+          style="margin-left: 15px; margin-right: 20px;">Calculate price</button>
       </div>
       <h1 class="form-control">{{finalprice}}</h1>
     </div>
