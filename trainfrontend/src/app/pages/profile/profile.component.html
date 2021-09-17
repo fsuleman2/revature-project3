@@ -1,18 +1,15 @@
 <mat-card *ngIf="user">
-  <h1>Your Profile Details</h1>
   <!-- {{ user | json }} -->
   <mat-card-content>
     <div class="bootstrap-wrapper">
       <div class="container">
         <div class="container text-center">
+          <h1>Welcome {{ user.username }}</h1>
           <img src="../../assets/img/852705.png" alt="" class="profile-image" />
-
-          <h1 class="mt20">{{ user.firstName }} {{ user.lastName }}</h1>
         </div>
-
+        <br>
         <div class="row">
           <div class="col-md-10 offset-md-1">
-            <!-- //table Details  -->
             <table class="table text-center">
               <tr>
                 <td>Username</td>
@@ -37,7 +34,5 @@
     </div>
   </mat-card-content>
   <mat-card-actions class="text-center">
-    <!-- <button mat-raised-button color="primary">UPDATE</button> -->
-    <!-- <button mat-raised-button color="accent">SHARE</button> -->
   </mat-card-actions>
 </mat-card>

@@ -149,17 +149,16 @@ export class BookingformComponent implements OnInit {
           // localStorage.setItem("gaddi", this.rev.td.tname);
           //ticket data details
           localStorage.setItem("ticketprice", this.rev.price);
-          alert("data submitted");
+          alert("Booking Initiated");
           window.location.href = "/customer-dashboard/payment"
         },
         (err: any) => {
-          alert("failed to add booking")
+          alert("Failed to Book")
         }
       )
-
     }
     else
-      alert("calculate price first");
+      alert("Calculate Price First");
   }
 
 }

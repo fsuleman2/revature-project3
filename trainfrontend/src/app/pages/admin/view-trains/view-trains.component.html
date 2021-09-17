@@ -33,15 +33,9 @@
     <button mat-stroked-button color="primary" class="ml20">
       Train Time: {{ q.date }}
     </button>
-    <button [routerLink]="'/admin/route/' + q.tid" mat-flat-button color="primary" class="ml20">
-      Update
-    </button>
-    <!-- <button mat-flat-button color="warn" class="ml10" (click)="deleteTrain(q.tId)">
-            Delete
-        </button> -->
   </mat-card-actions>
 </mat-card>
-
+<br>
 <div class="container text-center mt20">
   <button routerLink="/admin/add-train" mat-raised-button color="primary">
     Add New Train
