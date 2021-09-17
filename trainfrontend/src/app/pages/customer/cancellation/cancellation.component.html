@@ -1,25 +1,22 @@
 <mat-card>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <form (ngSubmit)="cancel()">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Booking Reference Number</mat-label>
-                        <input [(ngModel)]="bookingId" matInput type="number" name="bookingreference" placeholder="Enter Booking Reference Number" required>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Cancellation Reason</mat-label>
-                        <input [(ngModel)]="reason" matInput type="text" name="reason" placeholder="Cancellation Reason" required>
-                    </mat-form-field>
- 
-
-                    <div class="container text-center">
-                        <button  mat-raised-button class="btn btn-danger" type="submit">Cancel Booking</button>
-                      </div>
-
-                </form>
-            </div>
+  <div class="form-control">
+    <div class="row">
+      <form (ngSubmit)="cancel()">
+        <br>
+        <mat-form-field appearance="outline" class="col-xs-4">
+          <mat-label>Booking Reference Number</mat-label>
+          <input [(ngModel)]="bookingId" matInput type="number" name="bookingreference"
+            placeholder="Enter Booking Reference Number" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cancellation Reason</mat-label>
+          <input [(ngModel)]="reason" matInput type="text" name="reason" placeholder="Cancellation Reason" required>
+        </mat-form-field>
+        <div class="container text-center">
+          <button class="btn btn-danger" type="submit">Cancel Booking</button>
         </div>
+        <br>
+      </form>
     </div>
+  </div>
 </mat-card>
