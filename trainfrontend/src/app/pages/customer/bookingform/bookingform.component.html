@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="text-center">Book Your Tickets</h1>
   <form (ngSubmit)="checkavailabilty()">
     <mat-form-field appearance="fill" class="form-control">
       <mat-label>Select Seat Type</mat-label>
@@ -21,11 +22,13 @@
 </div>
 <!-- <hr> -->
 
-<div class="form-control">
+<div class="form-control" style="margin-left: 20px; margin-right: 20px;">
   <form *ngIf="flag,else elseblock" (ngSubmit)="confirmbooking()">
+    <b><h1 class="text-center" style="color: green;">Selected Seat Type is Available </h1></b>
+    <!-- <h3 class="text-center" style="color: blue;">Proceed to Continue</h3> -->
 
     <div class="row">
-      <mat-form-field class="col-xs-4" appearance="fill">
+      <mat-form-field class="col-xs-3" appearance="fill">
         <mat-label>Passenger's Name</mat-label>
         <input type="text" [(ngModel)]="booking.pname" placeholder="Enter Passenger's name" required id="pname"
           name="pname" matInput />
@@ -72,6 +75,7 @@
       <button mat-raised-button color="primary" data-toggle="modal" data-target="#customers"
         type="submit">Checkout</button>
     </div>
+
   </form>
 </div>
 
