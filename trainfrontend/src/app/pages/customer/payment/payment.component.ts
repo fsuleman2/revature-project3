@@ -16,7 +16,7 @@ export class PaymentComponent implements OnInit {
     amount: this.x,
     orderinfo: 'order created'
   }
-  constructor(private paymentService: CustomerService, private route: Router) { }
+  constructor(private paymentService: CustomerService, private router: Router) { }
   ngOnInit(): void {
     localStorage.setItem("pay", "false");
   }
@@ -62,14 +62,17 @@ export class PaymentComponent implements OnInit {
               //payment successfull
               Swal.fire('Payment Success', '', 'success').then((e) => {
                 localStorage.setItem("pay", "true");
-                window.location.href = "customer-dashboard/ticket";
+                window.location.href = "/#/customer-dashboard/ticket";
+                
                 // window.location.href="/qrcode";
                 localStorage.removeItem("price");
               })
+              
               updatePaymentOnServer(data.payment_id, data.order_id, data.status);
 
 
             },
+            //this.router.navigate(['customer-dashboard/ticket']);
             prefill: {
               name: '',
               email: '',
