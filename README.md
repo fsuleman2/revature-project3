@@ -1,5 +1,5 @@
-
-# Railway Reservation System
+# Revature Railways
+## Revature Railways is an Java Full Stack Railway Reservation System which allows passengers around the nation to search, book and cancel the train tickets. This Application is highly interactive and comes with smooth user experience/interface, passengers above 15 years of age can easily book tickets from the comfort of their homes.
   <h3>Postgress Credentials</h3>
   <li>Database Name : postgres</li><br>
   <li>Username : postgres</li><br>
