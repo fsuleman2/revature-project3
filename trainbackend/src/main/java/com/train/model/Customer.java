@@ -19,6 +19,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Customer implements UserDetails{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5049902676799668911L;
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long cId;
